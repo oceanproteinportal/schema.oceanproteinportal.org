@@ -1,0 +1,4 @@
+opp:
+  image: oceanproteinportal/vocab:0.1.0
+  ports:
+   - "8080:9900"

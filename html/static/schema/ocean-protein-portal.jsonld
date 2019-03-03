@@ -1,0 +1,1285 @@
+{
+  "@context": {
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "geolink": "http://schema.geolink.org/1.0/pattern/",
+    "opp": "http://schema.oceanproteinportal.org/",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "opp:PeptideSpectralCountSummation",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Sum of +2,+3,+4 data, = total unnormalized spectral counts - Quantitative Value"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sum of the spectral counts"
+      },
+      "skos:related": [
+        {
+          "@id": "opp:PeptidePlus2HSpectraCount"
+        },
+        {
+          "@id": "opp:PeptidePlus4HSpectraCount"
+        },
+        {
+          "@id": "opp:PeptidePlus3HSpectraCount"
+        }
+      ]
+    },
+    {
+      "@id": "opp:ProteinDeploymentIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a cruise or some other named deployment."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Deployment Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideBestIdProbability",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Best Peptide identification probability"
+      }
+    },
+    {
+      "@id": "opp:variableMeasured",
+      "@type": [
+        "owl:ObjectProperty",
+        "rdf:Property"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A measured DataTypeParameter for a Dataset."
+      },
+      "rdfs:domain": {
+        "@id": "opp:Dataset"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "variableMeasured"
+      },
+      "rdfs:range": {
+        "@id": "opp:DataTypeParameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:variableMeasured"
+      }
+    },
+    {
+      "@id": "opp:ProteinKeggName",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The Kegg pathway related to an identified Kegg Identifier for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Kegg Orthology Name"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinKeggIdentifier"
+      }
+    },
+    {
+      "@id": "opp:DataType",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A data type defines a set of required measurements a Dataset must or may contain to be considered as a valid representation of this type of data."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Type"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nfa1eac3ca9ca4a4bbc231d0d6c8bb248"
+        },
+        {
+          "@id": "owl:Thing"
+        },
+        {
+          "@id": "_:N95a70378d9ea4095bb2432e515120d20"
+        }
+      ],
+      "skos:broadMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "opp:ProteinMaxFilterSizeInMicrons",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The maximum filter size measured in microns for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Maximum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "opp:PeptidePlus2HSpectraCount",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Number of identified +2H spectra"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Number of identified +2H spectra"
+      }
+    },
+    {
+      "@id": "opp:PeptideBestSequestDCnScore",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Best SEQUEST DCn score"
+      }
+    },
+    {
+      "@id": "opp:ProteinUniprotIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a Uniprot identifier for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Uniprot Identifier"
+      }
+    },
+    {
+      "@id": "opp:ProteinBestHitSpecies",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The best taxonomic species name related to a Taxon identifier for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Best Species (Taxon)"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinBestHitTaxonIdentifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideSequence",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Unique Peptide sequence - ultimately this is the most unique identifier."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Sequence"
+      }
+    },
+    {
+      "@id": "opp:PeptideTotalPrecursorIntensity",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Total Precursor Intensity"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Total Precursor Intensity"
+      }
+    },
+    {
+      "@id": "opp:DataTypeParameter",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The data type includes a set of variables that define its usage. A user can find a datatype and know to expect these parameters to be a part of the dataset that the data type is associated with."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Type Parameter"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:PropertyValue"
+      }
+    },
+    {
+      "@id": "opp:PeptideProteinMolecularWeightDaltons",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The molecular weight measured in Daltons for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Protein Molecular Weight in Daltons"
+      },
+      "skos:related": [
+        {
+          "@id": "opp:ProteinMolecularWeightInDaltons"
+        },
+        {
+          "@id": "opp:PeptideProteinId"
+        }
+      ]
+    },
+    {
+      "@id": "opp:ProteinEnzymeCommissionIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a Enzyme Commission identifier for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Enzyme Commission Identifier"
+      }
+    },
+    {
+      "@id": "_:Nfa1eac3ca9ca4a4bbc231d0d6c8bb248",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": "1",
+      "owl:onProperty": {
+        "@id": "opp:measuresParameter"
+      }
+    },
+    {
+      "@id": "opp:PeptidePlus3HSpectraCount",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Number of identified +3H spectra"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Number of identified +3H spectra"
+      }
+    },
+    {
+      "@id": "opp:ProteinSpectralCountAtPlaceTime",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The spectral count for a protein at a specific station, depth and date/time."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Spectral Count at a Station, Depth, and Date"
+      },
+      "skos:related": [
+        {
+          "@id": "opp:ProteinStationIdentifier"
+        },
+        {
+          "@id": "opp:ProteinDepthMeters"
+        }
+      ]
+    },
+    {
+      "@id": "opp:measuresParameter",
+      "@type": [
+        "owl:ObjectProperty",
+        "rdf:Property"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Links a Data Type Parameter to a Data Type. Any parameter linked to a data type through this property is suggested, but not required to exist in a Dataset of this Data Type."
+      },
+      "rdfs:domain": {
+        "@id": "opp:DataType"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "measuresParameter"
+      },
+      "rdfs:range": {
+        "@id": "opp:DataTypeParameter"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:variableMeasured"
+      }
+    },
+    {
+      "@id": "opp:ProteinStationIdentifier",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a particular station for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Station Identifier"
+      }
+    },
+    {
+      "@id": "opp:OceanProteinPortalDataType",
+      "@type": [
+        "opp:Identifier",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An Identifier for the Ocean Protein Portal Data Type."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ocean Protein Protal Data Type Identifier"
+      }
+    },
+    {
+      "@id": "_:Nfc09bb39d012405dbff5b54d026518a5",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": "1",
+      "owl:onProperty": {
+        "@id": "opp:variableProvided"
+      }
+    },
+    {
+      "@id": "opp:PeptideStationIdentifier",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a particular station where measurements about a peptide were taken."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Station Identifier"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinStationIdentifier"
+      }
+    },
+    {
+      "@id": "opp:",
+      "@type": "owl:Ontology",
+      "dc:creator": {
+        "@id": "https://orcid.org/0000-0003-4486-9448"
+      },
+      "dc:description": "Ocean Protein Portal Vocabulary",
+      "dc:title": "Ocean Protein Portal Vocabulary",
+      "dcterms:issued": {
+        "@type": "xsd:date",
+        "@value": "2017-10-16"
+      },
+      "owl:versionInfo": "0.1.0"
+    },
+    {
+      "@id": "opp:dataTypeIdentifier",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A globally unique identifier for a data type."
+      },
+      "rdfs:domain": {
+        "@id": "opp:DataType"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Data Type Identifier"
+      },
+      "rdfs:range": {
+        "@id": "opp:Identifier"
+      },
+      "rdfs:subpropertyOf": {
+        "@id": "dcterms:identifier"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:identifier"
+      }
+    },
+    {
+      "@id": "opp:ProteinIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Unqiuely identifies one protein within a dataset."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Identifier"
+      }
+    },
+    {
+      "@id": "opp:subjectArea",
+      "@type": [
+        "owl:ObjectProperty",
+        "rdf:Property"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Links a subject Area to a Data Type."
+      },
+      "rdfs:domain": {
+        "@id": "opp:DataType"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Subject Area"
+      },
+      "rdfs:range": {
+        "@id": "opp:SubjectArea"
+      },
+      "skos:related": {
+        "@id": "schema:keywords"
+      }
+    },
+    {
+      "@id": "opp:ProteinPFamsIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a PFams identifier for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein PFams Identifier"
+      }
+    },
+    {
+      "@id": "opp:Dataset",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A dataset suitable for inspection by the Ocean Protein Portal."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ocean Protein Portal Dataset"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:N7dd6ce40f61c4097a7f7162f9bf7cc22"
+        },
+        {
+          "@id": "owl:Thing"
+        },
+        {
+          "@id": "_:Nc2dc174737f1411493712384c57726e1"
+        },
+        {
+          "@id": "_:N964e75c0684b44f8b7dc08d413725eab"
+        }
+      ],
+      "skos:exactMatch": {
+        "@id": "schema:Dataset"
+      }
+    },
+    {
+      "@id": "opp:PeptideTotalTIC",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Total TIC"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Total TIC"
+      }
+    },
+    {
+      "@id": "opp:ProteinBestHitTaxonIdentifier",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of the taxon identifier for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Best Taxon Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideBestSequestXCorrScore",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Best SEQUEST XCorr score"
+      }
+    },
+    {
+      "@id": "opp:ProteinKeggIdentifier",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a Kegg identifier for the protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Kegg Orthology Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptidePlus4HSpectraCount",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Number of identified +4H spectra"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Number of identified +4H spectra"
+      }
+    },
+    {
+      "@id": "opp:PeptideMinFilterSize",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The minimum filter size measured in microns for peptide measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Minumum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "_:N95a70378d9ea4095bb2432e515120d20",
+      "@type": "owl:Restriction",
+      "owl:allValuesFrom": {
+        "@id": "opp:OceanProteinPortalDataType"
+      },
+      "owl:onProperty": {
+        "@id": "opp:dataTypeIdentifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideStartIndex",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Data useful in creating peptide coverage map"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide start index"
+      },
+      "skos:related": {
+        "@id": "opp:PeptideStopIndex"
+      }
+    },
+    {
+      "@id": "opp:ProteinDepthMeters",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A depth measurement made in meters for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Depth in Meters for protein measurements"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinStationIdentifier"
+      }
+    },
+    {
+      "@id": "opp:variableProvided",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The variable for a Dataset provided by a Datasource."
+      },
+      "rdfs:domain": {
+        "@id": "opp:Datasource"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "variableProvided"
+      },
+      "rdfs:range": {
+        "@id": "opp:DataTypeParameter"
+      },
+      "skos:closeMatch": {
+        "@id": "schema:variableMeasured"
+      }
+    },
+    {
+      "@id": "opp:ProteinLatitudeDecimalDegrees",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A latitude recorded in decimal degrees."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Latitude in decimal degrees for protein measurements"
+      },
+      "skos:related": [
+        {
+          "@id": "opp:ProteinLongitudeDecimalDegrees"
+        },
+        {
+          "@id": "opp:ProteinStationIdentifier"
+        }
+      ]
+    },
+    {
+      "@id": "opp:PeptideProteinAccessionId",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of all the possible proteins from which this peptide came from."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Protein Accession Identifier"
+      },
+      "skos:exactMatch": {
+        "@id": "opp:ProteinIdentifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideMedianRetentionTime",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Median Retention Time"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Median Retention Time"
+      }
+    },
+    {
+      "@id": "opp:PeptideSampleName",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The MS/MS sample name for peptide measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Sample Name"
+      }
+    },
+    {
+      "@id": "opp:ProteinMinFilterSizeInMicrons",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The minimum filter size measured in microns for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Minimum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "opp:Datasource",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A file, API, or some resource at which a set of mesaurements for a Dataset Variable can be found. A Datasource allows for one dataset to have multiple sources for the variables it measures. For an Ocean Protein Poral dataset, there might be a FASTA file, and multiple tabular data files that in aggregate provide all the necessary variables to be of use."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ocean Protein Portal Datasource"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "_:Nfc09bb39d012405dbff5b54d026518a5"
+        },
+        {
+          "@id": "schema:CreativeWork"
+        }
+      ],
+      "skos:closeMatch": {
+        "@id": "schema:DigitalDocument"
+      }
+    },
+    {
+      "@id": "opp:requiresParameter",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdf:subPropertyOf": {
+        "@id": "opp:measuresParameter"
+      },
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Specifies that the Data Type Parameter is required by the Data Type to exist in any Dataset of this Data Type."
+      },
+      "rdfs:domain": {
+        "@id": "opp:DataType"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "requiresParameter"
+      },
+      "rdfs:range": {
+        "@id": "opp:DataTypeParameter"
+      },
+      "skos:exactMatch": {
+        "@id": "schema:variableMeasured"
+      }
+    },
+    {
+      "@id": "_:Nc2dc174737f1411493712384c57726e1",
+      "@type": "owl:Restriction",
+      "owl:hasValue": {
+        "@id": "opp:ProteinIdentifier"
+      },
+      "owl:onProperty": {
+        "@id": "opp:variableMeasured"
+      }
+    },
+    {
+      "@id": "opp:ProteinKeggDescription",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The Kegg description related to an identified Kegg Identifier for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Kegg Orthology Description"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinKeggIdentifier"
+      }
+    },
+    {
+      "@id": "opp:SubjectArea",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A subject area is a field of study related to a certain type of data derived from observations of this subject. Example: 'Metagenomics'"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Subject Area"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      },
+      "skos:broadMatch": {
+        "@id": "schema:Thing"
+      }
+    },
+    {
+      "@id": "opp:ProteinMolecularWeightInDaltons",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The molecular weight measured in Daltons for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Molecular Weight in Daltons (Da)"
+      }
+    },
+    {
+      "@id": "_:N964e75c0684b44f8b7dc08d413725eab",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": "1",
+      "owl:onProperty": {
+        "@id": "opp:sourceData"
+      }
+    },
+    {
+      "@id": "opp:ProteinPFamsDescription",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The PFams description related to an identified PFams Identifier for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein PFams Description"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinPFamsIdentifier"
+      }
+    },
+    {
+      "@id": "opp:ProteinLongitudeDecimalDegrees",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A longtiude recorded in decimal degrees for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Longitude in decimal degrees for protein measurements"
+      },
+      "skos:related": [
+        {
+          "@id": "opp:ProteinLatitudeDecimalDegrees"
+        },
+        {
+          "@id": "opp:ProteinStationIdentifier"
+        }
+      ]
+    },
+    {
+      "@id": "opp:PeptideMaxFilterSizeInMicrons",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The maximum filter size measured in microns for peptide measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Maximum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "opp:Identifier",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of a gloablly unique identifier. An identifier must have a scheme, or domain, and a value within that scheme. For example, the digital object identifier (DOI) of doi:10.1234/56789 has a scheme of \"DOI\" and value of \"10.1234/56789\""
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Identifier"
+      },
+      "rdfs:subClassOf": {
+        "@id": "owl:Thing"
+      },
+      "skos:broadMatch": {
+        "@id": "schema:PropertyValue"
+      },
+      "skos:exactMatch": {
+        "@id": "geolink:Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideDepthMeters",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A depth measurement made in meters for peptide measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Depth in Meters for peptide measurements"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinDepthMeters"
+      }
+    },
+    {
+      "@id": "opp:PeptideProteinId",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Representative of the protein from which this peptide came from."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide Protein Identifier"
+      },
+      "skos:exactMatch": {
+        "@id": "opp:ProteinIdentifier"
+      }
+    },
+    {
+      "@id": "_:N7dd6ce40f61c4097a7f7162f9bf7cc22",
+      "@type": "owl:Restriction",
+      "owl:hasValue": {
+        "@id": "opp:ProteinStationIdentifier"
+      },
+      "owl:onProperty": {
+        "@id": "opp:variableMeasured"
+      }
+    },
+    {
+      "@id": "opp:sourceData",
+      "@type": [
+        "rdf:Property",
+        "owl:ObjectProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The source of instance data."
+      },
+      "rdfs:domain": {
+        "@id": "opp:Dataset"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "sourceData"
+      },
+      "rdfs:range": {
+        "@id": "opp:Datasource"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:hasPart"
+      }
+    },
+    {
+      "@id": "opp:ProteinBestHitAnnotaion",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The best annotation hit for a protein."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Protein Best Annotation (Product Name)"
+      }
+    },
+    {
+      "@id": "opp:PeptideStopIndex",
+      "@type": [
+        "owl:NamedIndividual",
+        "opp:DataTypeParameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Data useful in creating peptide coverage map"
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Peptide stop index"
+      },
+      "skos:related": {
+        "@id": "opp:PeptideStartIndex"
+      }
+    },
+    {
+      "@id": "opp:ProteinObservationDateTimeUTC",
+      "@type": [
+        "opp:DataTypeParameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A date time measurement made in UTC for protein measurements."
+      },
+      "rdfs:isDefinedBy": {
+        "@id": "opp:"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Observation Date/Time UTC"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinStationIdentifier"
+      }
+    }
+  ]
+}

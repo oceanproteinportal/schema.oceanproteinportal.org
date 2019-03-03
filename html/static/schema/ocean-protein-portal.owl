@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:dcterms="http://purl.org/dc/terms/"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+         xmlns:schema="http://schema.org/"
+         xmlns:geolink="http://schema.geolink.org/1.0/pattern/"
+         xmlns:opp="http://schema.oceanproteinportal.org/">
+
+<!-- NEED TO:
+
+1. Make opp:variableProvided so that a opp:Dataset inherits these from its
+    opp:Datasource as opp:variableMeasured.
+
+-->
+
+  <owl:Ontology rdf:about="http://schema.oceanproteinportal.org/">
+    <dc:description>Ocean Protein Portal Vocabulary</dc:description>
+    <dc:title>Ocean Protein Portal Vocabulary</dc:title>
+    <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2017-10-16</dcterms:issued>
+    <owl:versionInfo>0.1.0</owl:versionInfo>
+    <dc:creator rdf:resource="https://orcid.org/0000-0003-4486-9448"/>
+  </owl:Ontology>
+
+  <owl:Class rdf:about="opp:DataType">
+    <rdfs:subClassOf rdf:resource="owl:Thing"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:measuresParameter"/>
+        <owl:minCardinality>1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:dataTypeIdentifier"/>
+        <owl:allValuesFrom rdf:resource="opp:OceanProteinPortalDataType"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <skos:broadMatch rdf:resource="schema:Thing"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Data Type</rdfs:label>
+    <rdfs:comment xml:lang="en">A data type defines a set of required measurements a Dataset must or may contain to be considered as a valid representation of this type of data.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="opp:SubjectArea">
+    <rdfs:subClassOf rdf:resource="owl:Thing"/>
+    <skos:broadMatch rdf:resource="schema:Thing"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Subject Area</rdfs:label>
+    <rdfs:comment xml:lang="en">A subject area is a field of study related to a certain type of data derived from observations of this subject. Example: 'Metagenomics'</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="opp:Dataset">
+    <rdfs:subClassOf rdf:resource="owl:Thing"/>
+    <skos:exactMatch rdf:resource="schema:Dataset"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:sourceData"/>
+        <owl:minCardinality>1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:variableMeasured"/>
+        <owl:hasValue rdf:resource="opp:ProteinStationIdentifier"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:variableMeasured"/>
+        <owl:hasValue rdf:resource="opp:ProteinIdentifier"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Ocean Protein Portal Dataset</rdfs:label>
+    <rdfs:comment xml:lang="en">A dataset suitable for inspection by the Ocean Protein Portal.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="opp:DataTypeParameter">
+    <rdfs:subClassOf rdf:resource="owl:Thing"/>
+    <skos:exactMatch rdf:resource="schema:PropertyValue"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Data Type Parameter</rdfs:label>
+    <rdfs:comment xml:lang="en">The data type includes a set of variables that define its usage. A user can find a datatype and know to expect these parameters to be a part of the dataset that the data type is associated with.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="opp:Datasource">
+    <rdfs:subClassOf rdf:resource="schema:CreativeWork"/>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty rdf:resource="opp:variableProvided"/>
+        <owl:minCardinality>1</owl:minCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <skos:closeMatch rdf:resource="schema:DigitalDocument"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Ocean Protein Portal Datasource</rdfs:label>
+    <rdfs:comment xml:lang="en">A file, API, or some resource at which a set of mesaurements for a Dataset Variable can be found. A Datasource allows for one dataset to have multiple sources for the variables it measures. For an Ocean Protein Poral dataset, there might be a FASTA file, and multiple tabular data files that in aggregate provide all the necessary variables to be of use.</rdfs:comment>
+  </owl:Class>
+
+  <owl:Class rdf:about="opp:Identifier">
+    <rdfs:subClassOf rdf:resource="owl:Thing"/>
+    <skos:exactMatch rdf:resource="geolink:Identifier"/>
+    <skos:broadMatch rdf:resource="schema:PropertyValue"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a gloablly unique identifier. An identifier must have a scheme, or domain, and a value within that scheme. For example, the digital object identifier (DOI) of doi:10.1234/56789 has a scheme of "DOI" and value of "10.1234/56789"</rdfs:comment>
+  </owl:Class>
+
+  <owl:ObjectProperty rdf:about="opp:subjectArea">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <skos:related rdf:resource="schema:keywords"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:DataType"/>
+    <rdfs:range rdf:resource="opp:SubjectArea"/>
+    <rdfs:label xml:lang="en">Subject Area</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a subject Area to a Data Type.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:dataTypeIdentifier">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <skos:exactMatch rdf:resource="schema:identifier"/>
+    <rdfs:subpropertyOf rdf:resource="dcterms:identifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:DataType"/>
+    <rdfs:range rdf:resource="opp:Identifier"/>
+    <rdfs:label xml:lang="en">Data Type Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">A globally unique identifier for a data type.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:variableMeasured">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <rdfs:subPropertyOf rdf:resource="schema:variableMeasured"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:Dataset"/>
+    <rdfs:range rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:label xml:lang="en">variableMeasured</rdfs:label>
+    <rdfs:comment xml:lang="en">A measured DataTypeParameter for a Dataset.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:sourceData">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <rdfs:subPropertyOf rdf:resource="schema:hasPart"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:Dataset"/>
+    <rdfs:range rdf:resource="opp:Datasource"/>
+    <rdfs:label xml:lang="en">sourceData</rdfs:label>
+    <rdfs:comment xml:lang="en">The source of instance data.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:variableProvided">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <skos:closeMatch rdf:resource="schema:variableMeasured"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:Datasource"/>
+    <rdfs:range rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:label xml:lang="en">variableProvided</rdfs:label>
+    <rdfs:comment xml:lang="en">The variable for a Dataset provided by a Datasource.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:measuresParameter">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <skos:exactMatch rdf:resource="schema:variableMeasured"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:DataType"/>
+    <rdfs:range rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:label xml:lang="en">measuresParameter</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a Data Type Parameter to a Data Type. Any parameter linked to a data type through this property is suggested, but not required to exist in a Dataset of this Data Type.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <owl:ObjectProperty rdf:about="opp:requiresParameter">
+    <rdf:type rdf:resource="rdf:Property"/>
+    <rdf:subPropertyOf rdf:resource="opp:measuresParameter"/>
+    <skos:exactMatch rdf:resource="schema:variableMeasured"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:domain rdf:resource="opp:DataType"/>
+    <rdfs:range rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:label xml:lang="en">requiresParameter</rdfs:label>
+    <rdfs:comment xml:lang="en">Specifies that the Data Type Parameter is required by the Data Type to exist in any Dataset of this Data Type.</rdfs:comment>
+  </owl:ObjectProperty>
+
+  <!-- Named Individuals -->
+  <owl:NamedIndividual rdf:about="opp:OceanProteinPortalDataType">
+    <rdf:type rdf:resource="opp:Identifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Ocean Protein Protal Data Type Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">An Identifier for the Ocean Protein Portal Data Type.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinDeploymentIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Deployment Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a cruise or some other named deployment.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinStationIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Station Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a particular station for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinLatitudeDecimalDegrees">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <skos:related rdf:resource="opp:ProteinLongitudeDecimalDegrees"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Latitude in decimal degrees for protein measurements</rdfs:label>
+    <rdfs:comment xml:lang="en">A latitude recorded in decimal degrees.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinLongitudeDecimalDegrees">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <skos:related rdf:resource="opp:ProteinLatitudeDecimalDegrees"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Longitude in decimal degrees for protein measurements</rdfs:label>
+    <rdfs:comment xml:lang="en">A longtiude recorded in decimal degrees for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinDepthMeters">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Depth in Meters for protein measurements</rdfs:label>
+    <rdfs:comment xml:lang="en">A depth measurement made in meters for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinObservationDateTimeUTC">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Observation Date/Time UTC</rdfs:label>
+    <rdfs:comment xml:lang="en">A date time measurement made in UTC for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Unqiuely identifies one protein within a dataset.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinMinFilterSizeInMicrons">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Minimum Filter Size in Microns</rdfs:label>
+    <rdfs:comment xml:lang="en">The minimum filter size measured in microns for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinMaxFilterSizeInMicrons">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Maximum Filter Size in Microns</rdfs:label>
+    <rdfs:comment xml:lang="en">The maximum filter size measured in microns for protein measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinMolecularWeightInDaltons">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Molecular Weight in Daltons (Da)</rdfs:label>
+    <rdfs:comment xml:lang="en">The molecular weight measured in Daltons for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinBestHitAnnotaion">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Best Annotation (Product Name)</rdfs:label>
+    <rdfs:comment xml:lang="en">The best annotation hit for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinBestHitTaxonIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Best Taxon Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of the taxon identifier for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinBestHitSpecies">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinBestHitTaxonIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Best Species (Taxon)</rdfs:label>
+    <rdfs:comment xml:lang="en">The best taxonomic species name related to a Taxon identifier for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinKeggIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Kegg Orthology Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a Kegg identifier for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinKeggName">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinKeggIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Kegg Orthology Name</rdfs:label>
+    <rdfs:comment xml:lang="en">The Kegg pathway related to an identified Kegg Identifier for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinKeggDescription">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinKeggIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Kegg Orthology Description</rdfs:label>
+    <rdfs:comment xml:lang="en">The Kegg description related to an identified Kegg Identifier for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinEnzymeCommissionIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Enzyme Commission Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a Enzyme Commission identifier for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinUniprotIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Uniprot Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a Uniprot identifier for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinPFamsIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein PFams Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a PFams identifier for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinPFamsDescription">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinPFamsIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein PFams Description</rdfs:label>
+    <rdfs:comment xml:lang="en">The PFams description related to an identified PFams Identifier for a protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:ProteinSpectralCountAtPlaceTime">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <skos:related rdf:resource="opp:ProteinDepthMeters"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Protein Spectral Count at a Station, Depth, and Date</rdfs:label>
+    <rdfs:comment xml:lang="en">The spectral count for a protein at a specific station, depth and date/time.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideStationIdentifier">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinStationIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Station Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of a particular station where measurements about a peptide were taken.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideMinFilterSize">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Minumum Filter Size in Microns</rdfs:label>
+    <rdfs:comment xml:lang="en">The minimum filter size measured in microns for peptide measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideMaxFilterSizeInMicrons">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Maximum Filter Size in Microns</rdfs:label>
+    <rdfs:comment xml:lang="en">The maximum filter size measured in microns for peptide measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideDepthMeters">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:ProteinDepthMeters"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Depth in Meters for peptide measurements</rdfs:label>
+    <rdfs:comment xml:lang="en">A depth measurement made in meters for peptide measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideSampleName">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Sample Name</rdfs:label>
+    <rdfs:comment xml:lang="en">The MS/MS sample name for peptide measurements.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideProteinId">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:exactMatch rdf:resource="opp:ProteinIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Protein Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of the protein from which this peptide came from.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideProteinAccessionId">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:exactMatch rdf:resource="opp:ProteinIdentifier"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Protein Accession Identifier</rdfs:label>
+    <rdfs:comment xml:lang="en">Representative of all the possible proteins from which this peptide came from.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideProteinMolecularWeightDaltons">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:PeptideProteinId"/>
+    <skos:related rdf:resource="opp:ProteinMolecularWeightInDaltons"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Protein Molecular Weight in Daltons</rdfs:label>
+    <rdfs:comment xml:lang="en">The molecular weight measured in Daltons for the protein.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideSequence">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide Sequence</rdfs:label>
+    <rdfs:comment xml:lang="en">Unique Peptide sequence - ultimately this is the most unique identifier.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideBestIdProbability">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Best Peptide identification probability</rdfs:label>
+    <rdfs:comment xml:lang="en">Metric of peptide quality.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideBestSequestXCorrScore">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Best SEQUEST XCorr score</rdfs:label>
+    <rdfs:comment xml:lang="en">Metric of peptide quality.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideBestSequestDCnScore">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Best SEQUEST DCn score</rdfs:label>
+    <rdfs:comment xml:lang="en">Metric of peptide quality.</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptidePlus2HSpectraCount">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Number of identified +2H spectra</rdfs:label>
+    <rdfs:comment xml:lang="en">Number of identified +2H spectra</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptidePlus3HSpectraCount">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Number of identified +3H spectra</rdfs:label>
+    <rdfs:comment xml:lang="en">Number of identified +3H spectra</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptidePlus4HSpectraCount">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Number of identified +4H spectra</rdfs:label>
+    <rdfs:comment xml:lang="en">Number of identified +4H spectra</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideSpectralCountSummation">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:PeptidePlus2HSpectraCount"/>
+    <skos:related rdf:resource="opp:PeptidePlus3HSpectraCount"/>
+    <skos:related rdf:resource="opp:PeptidePlus4HSpectraCount"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Sum of the spectral counts</rdfs:label>
+    <rdfs:comment xml:lang="en">Sum of +2,+3,+4 data, = total unnormalized spectral counts - Quantitative Value</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideMedianRetentionTime">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Median Retention Time</rdfs:label>
+    <rdfs:comment xml:lang="en">Median Retention Time</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideTotalPrecursorIntensity">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Total Precursor Intensity</rdfs:label>
+    <rdfs:comment xml:lang="en">Total Precursor Intensity</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideTotalTIC">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Total TIC</rdfs:label>
+    <rdfs:comment xml:lang="en">Total TIC</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideStartIndex">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:PeptideStopIndex"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide start index</rdfs:label>
+    <rdfs:comment xml:lang="en">Data useful in creating peptide coverage map</rdfs:comment>
+  </owl:NamedIndividual>
+
+  <owl:NamedIndividual rdf:about="opp:PeptideStopIndex">
+    <rdf:type rdf:resource="opp:DataTypeParameter"/>
+    <skos:related rdf:resource="opp:PeptideStartIndex"/>
+    <rdfs:isDefinedBy rdf:resource="opp:"/>
+    <rdfs:label xml:lang="en">Peptide stop index</rdfs:label>
+    <rdfs:comment xml:lang="en">Data useful in creating peptide coverage map</rdfs:comment>
+  </owl:NamedIndividual>
+
+</rdf:RDF>

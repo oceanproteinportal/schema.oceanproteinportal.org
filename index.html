@@ -1,267 +1,237 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta content="text/html;charset=UTF-8" http-equiv="Content-Type"></meta>
-<link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
-<link rel="stylesheet" href="/static/css/bootstrap.min.css"></link>
-<link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"></link>
-<link rel="stylesheet" href="/static/css/vocab.css"></link>
+  <head>
+    <title id="page-title">Ocean Protein Portal Web Vocabulary</title>
+    <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"></meta>
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="/css/vocab.css"></link>
+    <script src="/js/es6-shim.min.js"></script>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+    <script id="vocab" src="ontology.jsonld" type="application/ld+json"></script>
+  </head>
+  <body lang="en">
+    <div class="toolkit header-short">
+       <header>
+          <div class="header-top">
+             <div class="container">
+                <div class="logo">
+                   <div class="logo1">
+                      <a id="logo-url" href="https://schema.oceanproteinportal.org">
+                         <img alt="Logo" src="https://earthcube.org/sites/default/files/doc-repository/logo_earthcube_full_horizontal.png"></img>
+                      </a>
+                   </div>
+                </div>
+             </div>
+          </div>
+       </header>
+    </div>
 
+    <div class="container">
+      <div id="mainblock" >
 
-<title>Ocean Protein Portal Web Vocabulary</title>
-<script src="/static/js/es6-shim.min.js"></script>
-<script src="/static/js/jquery-2.1.0.min.js"></script>
-<script id="vocab" src="/static/schema/ocean-protein-portal.jsonld" type="application/ld+json"></script>
-</head>
-<body lang="en" prefix="xsd: http://www.w3.org/2001/XMLSchema# rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# dc: http://purl.org/dc/elements/1.1/ dcterms: http://purl.org/dc/terms/ skos: http://www.w3.org/2004/02/skos/core# schema: http://schema.org/ opp: http://schema.oceanproteinportal.org/">
-<noscript>
-<style type="text/css">
-/* First CSS block searchTerm= [0]*/
-#intro {display: block;}
-#searchBox {display: block;}
-.searchresults {display: none;}
-#triple {display: none;}
-#allClasses {display: none;}
-#allProperties {display: none;}
-#allTypecodes {display: none;}
-#propertiesOfClass {display: none;}
-#propertiesOfParentClass {display: none;}
-#propertiesOfGrandparentClass {display: none;}
-#definedTypecodeinstances {display: none;}
-#subclasses {display: none;}
-#superclasses {display: none;}
-#rangeinfo {display: none;}
-#domaininfo {display: none;}
-#havingrangeinfo {display: none;}
-#siblinginfo {display: none;}
-.termschema {display: none;}
-</style>
-</noscript>
+        <ol id="breadcrumbTrail" class="breadcrumb">
+          <li id="currentClass">Ocean Protein Portal Web Vocabulary</li>
+        </ol>
 
-            <div class="toolkit  header-short">
-               <header>
-                  <div class="header-top">
-                     <div class="container">
-                        <div class="logo">
-                           <div class="logo1">
-                              <a href="http://schema.oceanproteinportal.org">
-                                 <img alt="Logo" src="https://earthcube.org/sites/default/files/doc-repository/logo_earthcube_full_horizontal.png"></img>
-                              </a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </header>
-            </div>
+        <h1>
+           <span id="termName" property="rdfs:label" language="en-US">Ocean Protein Portal Web Vocabulary</span><br>
+           <small><span id="termURL">http://schema.oceanproteinportal.org/</span></small>
+        </h1>
 
-            <div class="container">
-               <div id="mainblock" >
-                  <ol id="breadcrumbTrail" class="breadcrumb"><li id="currentClass">Ocean Protein Portal Web Vocabulary</li></ol>
-
-
-
-          <h1>
-                     <span id="termName" property="rdfs:label" language="en-US">Ocean Protein Portal Web Vocabulary</span><br>
-                     <small><span id="termURL">http://schema.oceanproteinportal.org/</span></small>
-                  </h1>
-                  <p id="termComment" property="rdfs:comment"></p>
-
-                  <p id="superclassNote"></p>
-                  <p id="subclassNote"></p>
+        <p id="termComment" property="rdfs:comment"></p>
+        <p id="superclassNote"></p>
+        <p id="subclassNote"></p>
         <p class="termschema">Nearest schema.org equivalent: <br><span id="schemaEquivalent"></span><br></p>
 
-
         <div id="intro">
-<p>This site documents the Ocean Protein Portal Web Vocabulary.  The initial focus of the vocabulary is ....</p>
-<hr>                <ul>
-          <li><a href="./?show=classes" class="link">Browse all classes</a></li>
-          <li><a href="./?show=properties" class="link">Browse all properties</a></li>
-          <li><a href="./?show=namedindividuals" class="link">Browse all named individuals</a></li-->
-          <li><a href="/diagram/data-type">View Data Type Diagram</a></li>
-
-        </ul>
-        <hr/>
-        <form action="./" method="post">
-        <p id="searchBox"><input type="search" id="searchTerm" name="searchTerm" placeholder="single keyword"><input type="submit" id="doSearch" value="Search"></p>
-        </form>
+          <p id="ontology-description">This site documents the Ocean Protein Portal Web Vocabulary.</p>
+          <hr>
+            <ul>
+              <li><a href="./?show=classes" class="link">Browse all classes</a></li>
+              <li><a href="./?show=properties" class="link">Browse all properties</a></li>
+              <li><a href="./?show=namedindividuals" class="link">Browse all named individuals</a></li-->
+              <li><a href="/diagram.html">View Diagram</a></li>
+            </ul>
+          <hr/>
+          <form action="./" method="post">
+            <p id="searchBox"><input type="search" id="searchTerm" name="searchTerm" placeholder="single keyword"><input type="submit" id="doSearch" value="Search"></p>
+          </form>
         </div>
         <div class="searchresults">
           <div id="classResults" class="tablediv table">
           <p class="tableheader" >Classes:</p>
-            <table class="table table-striped">
-             <thead id="classResultsHead"><th>Class</th><th>Description</th></thead>
-             <tbody id="classResultsDetails"></tbody>
-          </table>
-          </div>
-
-          <div id="propertyResults" class="tablediv">
-          <p class="tableheader" >Properties:</p>
-            <table class="table table-striped">
-             <thead id="propertyResultsHead"><th>Property</th><th>Expected Type</th><th>Description</th></thead>
-             <tbody id="propertyResultsDetails"></tbody>
-          </table>
-          </div>
-
-          <div id="namedIndividualResults" class="tablediv">
-          <p class="tableheader" >Named Individuals:</p>
-            <table class="table table-striped">
-             <thead id="namedIndividualResultsHead"><th>Named Individual</th><th>Description</th></thead>
-             <tbody id="namedIndividualResultsDetails"></tbody>
-          </table>
-          </div>
-
-          <div id="typecodeResults" class="tablediv">
-          <p class="tableheader" >Type Codes:</p>
-            <table class="table table-striped">
-             <thead id="typecodeResultsHead"><th>TypeCode</th><th>Description</th></thead>
-             <tbody id="typecodeResultsDetails"></tbody>
-          </table>
-          </div>
-
-          <div id="typecodeinstanceResults" class="tablediv">
-          <p class="tableheader" >Type Code Values:</p>
-            <table class="table table-striped">
-             <thead id="typecodeinstanceResultsHead"><th>Code Value</th><th>Name</th><th>Description and URI</th></thead>
-             <tbody id="typecodeinstanceResultsDetails"></tbody>
-          </table>
-          </div>
-        </div>
-
-
-        <div id="allClasses" class="tablediv">
-        <p class="tableheader">All Classes</p>
-                  <table class="table table-striped">
-                     <thead><th>Class</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails1"></tbody>
-        </table>
-        </div>
-
-        <div id="allProperties" class="tablediv">
-        <p class="tableheader">All Properties</p>
-                  <table class="table table-striped">
-                     <thead><th>Property</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails2"></tbody>
-        </table>
-        </div>
-        <div id="allNamedIndividuals" class="tablediv">
-        <p class="tableheader">All Named Individuals</p>
-                  <table class="table table-striped">
-                     <thead><th>Named Individuals</th><th>Type</th><th>Description</th></thead>
-                     <tbody id="termMemberDetailsNI"></tbody>
-        </table>
-        </div>
-        <div id="propertiesOfNI" class="tablediv">
-        <p class="tableheader" id="membertableHeader4"></p>
           <table class="table table-striped">
-            <thead><th>Property</th><th>Value</th><th>Is Value Of</th></thead>
-            <tbody id="termMemberDetailsNIProperties"></tbody>
+            <thead id="classResultsHead"><th>Class</th><th>Description</th></thead>
+            <tbody id="classResultsDetails"></tbody>
           </table>
         </div>
+
+        <div id="propertyResults" class="tablediv">
+          <p class="tableheader" >Properties:</p>
+          <table class="table table-striped">
+            <thead id="propertyResultsHead"><th>Property</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="propertyResultsDetails"></tbody>
+          </table>
+        </div>
+
+        <div id="namedIndividualResults" class="tablediv">
+          <p class="tableheader" >Named Individuals:</p>
+          <table class="table table-striped">
+            <thead id="namedIndividualResultsHead"><th>Named Individual</th><th>Description</th></thead>
+            <tbody id="namedIndividualResultsDetails"></tbody>
+          </table>
+        </div>
+
+        <div id="typecodeResults" class="tablediv">
+          <p class="tableheader" >Type Codes:</p>
+          <table class="table table-striped">
+            <thead id="typecodeResultsHead"><th>TypeCode</th><th>Description</th></thead>
+            <tbody id="typecodeResultsDetails"></tbody>
+          </table>
+        </div>
+
+        <div id="typecodeinstanceResults" class="tablediv">
+          <p class="tableheader" >Type Code Values:</p>
+          <table class="table table-striped">
+            <thead id="typecodeinstanceResultsHead"><th>Code Value</th><th>Name</th><th>Description and URI</th></thead>
+            <tbody id="typecodeinstanceResultsDetails"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="allClasses" class="tablediv">
+        <p class="tableheader">All Classes</p>
+        <table class="table table-striped">
+          <thead><th>Class</th><th>Description</th></thead>
+          <tbody id="termMemberDetails1"></tbody>
+        </table>
+      </div>
+
+      <div id="allProperties" class="tablediv">
+        <p class="tableheader">All Properties</p>
+        <table class="table table-striped">
+          <thead><th>Property</th><th>Description</th></thead>
+          <tbody id="termMemberDetails2"></tbody>
+        </table>
+      </div>
+
+      <div id="allNamedIndividuals" class="tablediv">
+        <p class="tableheader">All Named Individuals</p>
+        <table class="table table-striped">
+          <thead><th>Named Individuals</th><th>Type</th><th>Description</th></thead>
+          <tbody id="termMemberDetailsNI"></tbody>
+        </table>
+      </div>
+      <div id="propertiesOfNI" class="tablediv">
+        <p class="tableheader" id="membertableHeader4"></p>
+        <table class="table table-striped">
+          <thead><th>Property</th><th>Value</th><th>Is Value Of</th></thead>
+          <tbody id="termMemberDetailsNIProperties"></tbody>
+        </table>
+      </div>
 
         <div id="allTypecodes" class="tablediv">
-        <p class="tableheader">All Type Codes</p>
-                  <table class="table table-striped">
-                     <thead><th>TypeCode</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails3"></tbody>
-        </table>
+          <p class="tableheader">All Type Codes</p>
+          <table class="table table-striped">
+            <thead><th>TypeCode</th><th>Description</th></thead>
+            <tbody id="termMemberDetails3"></tbody>
+          </table>
         </div>
 
         <div id="propertiesOfClass" class="tablediv">
-        <p class="tableheader" id="membertableHeader4"></p>
-                  <table class="table table-striped">
-                     <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails4"></tbody>
-        </table>
+          <p class="tableheader" id="membertableHeader4"></p>
+          <table class="table table-striped">
+            <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="termMemberDetails4"></tbody>
+          </table>
         </div>
 
         <div id="propertiesOfParentClass" class="tablediv">
-        <p class="tableheader" id="membertableHeader4a"></p>
-                  <table class="table table-striped">
-                     <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails4a"></tbody>
-        </table>
+          <p class="tableheader" id="membertableHeader4a"></p>
+          <table class="table table-striped">
+            <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="termMemberDetails4a"></tbody>
+          </table>
         </div>
 
         <div id="propertiesOfGrandparentClass" class="tablediv">
-        <p class="tableheader" id="membertableHeader4b"></p>
-                  <table class="table table-striped">
-                     <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
-                     <tbody id="termMemberDetails4b"></tbody>
-        </table>
+          <p class="tableheader" id="membertableHeader4b"></p>
+          <table class="table table-striped">
+            <thead><th>Property</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="termMemberDetails4b"></tbody>
+          </table>
         </div>
 
-
         <div id="definedTypecodeinstances" class="tablediv">
-        <p class="tableheader">Defined values for this Type Code</p>
-                  <table class="table table-striped">
-                     <thead><th>Code Value</th><th>Name</th><th>Description and URI</th></thead>
-                     <tbody id="termMemberDetails5"></tbody>
-        </table>
+          <p class="tableheader">Defined values for this Type Code</p>
+          <table class="table table-striped">
+            <thead><th>Code Value</th><th>Name</th><th>Description and URI</th></thead>
+            <tbody id="termMemberDetails5"></tbody>
+          </table>
         </div>
 
         <div id="subclasses" class="tablediv">
-        <p class="tableheader">Subclasses &#x21E9;</p>
-                <table class="table table-striped">
-                     <thead><th>Subclass</th><th>URI</th><th>Description</th></thead>
-                     <tbody id="subclassDetails"></tbody>
-        </table>
+          <p class="tableheader">Subclasses &#x21E9;</p>
+          <table class="table table-striped">
+            <thead><th>Subclass</th><th>URI</th><th>Description</th></thead>
+            <tbody id="subclassDetails"></tbody>
+          </table>
         </div>
 
-                <div id="superclasses" class="tablediv">
-        <p class="tableheader">Superclasses &#x21E7;</p>
-                <table class="table table-striped">
-                     <thead><th>Superclass</th><th>URI</th><th>Description</th></thead>
-                     <tbody id="superclassDetails"></tbody>
-        </table>
+        <div id="superclasses" class="tablediv">
+          <p class="tableheader">Superclasses &#x21E7;</p>
+          <table class="table table-striped">
+            <thead><th>Superclass</th><th>URI</th><th>Description</th></thead>
+            <tbody id="superclassDetails"></tbody>
+          </table>
         </div>
 
         <div id="triple" style="width: 100%;">
-        <span class="oval" id="domainOval"></span>
-        <span class="predicate" id="predicateArrow"></span>
-        <span id="rangeShape" class=""></span>
+          <span class="oval" id="domainOval"></span>
+          <span class="predicate" id="predicateArrow"></span>
+          <span id="rangeShape" class=""></span>
         </div>
 
-
-                <div id="rangeinfo" class="tablediv">
-        <p class="tableheader">Expects value of type:</p>
-                 <table class="table table-striped">
-                     <thead><th>Value is expected to be of type:</th></thead>
-                     <tbody id="rangeDetails"></tbody>
-        </table>
+        <div id="rangeinfo" class="tablediv">
+          <p class="tableheader">Expects value of type:</p>
+          <table class="table table-striped">
+            <thead><th>Value is expected to be of type:</th></thead>
+            <tbody id="rangeDetails"></tbody>
+          </table>
         </div>
 
         <div id="domaininfo" class="tablediv">
-        <p class="tableheader">Classes having this property:</p>
-                 <table class="table table-striped">
-                     <thead><th>Used with these classes:</th></thead>
-                     <tbody id="domainDetails"></tbody>
-        </table>
+          <p class="tableheader">Classes having this property:</p>
+          <table class="table table-striped">
+            <thead><th>Used with these classes:</th></thead>
+            <tbody id="domainDetails"></tbody>
+          </table>
         </div>
 
         <div id="havingrangeinfo" class="tablediv">
-        <p class="tableheader">Properties expecting this type of value:</p>
-                <table class="table table-striped">
-                     <thead><th>Property expecting this type</th><th>Expected Type</th><th>Description</th></thead>
-                     <tbody id="havingRangeDetails"></tbody>
-        </table>
+          <p class="tableheader">Properties expecting this type of value:</p>
+          <table class="table table-striped">
+            <thead><th>Property expecting this type</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="havingRangeDetails"></tbody>
+          </table>
         </div>
 
         <div id="siblinginfo" class="tablediv">
-        <p class="tableheader">Related properties (with the same domain and range):</p>
-                <table class="table table-striped">
-                     <thead id="siblingHead"><th>Property</th><th>Expected Type</th><th>Description</th></thead>
-                     <tbody id="siblingDetails"></tbody>
-        </table>
+          <p class="tableheader">Related properties (with the same domain and range):</p>
+          <table class="table table-striped">
+            <thead id="siblingHead"><th>Property</th><th>Expected Type</th><th>Description</th></thead>
+            <tbody id="siblingDetails"></tbody>
+          </table>
         </div>
-
-
-
-      </div>
-      <div class="footer">
-        <div id="version"><hr/><span class="label">Version: </span><span id="version-info"></span></div>
-        <div id="date"><span class="label">Date:</span><span id="issued-date"></span></div>
       </div>
 
-<script src="/static/js/voc.js"></script>
-</body>
+    <div class="footer">
+      <div id="version"><hr/><span class="label">Version: </span><span id="version-info"></span></div>
+      <div id="date"><span class="label">Date:</span><span id="issued-date"></span></div>
+    </div>
+
+    <script src="/js/voc.js"></script>
+  </body>
 </html>

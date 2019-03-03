@@ -1,3 +1,22 @@
+#intro {display: block;}
+#searchBox {display: block;}
+.searchresults {display: none;}
+#triple {display: none;}
+#allClasses {display: none;}
+#allProperties {display: none;}
+#allTypecodes {display: none;}
+#propertiesOfClass {display: none;}
+#propertiesOfParentClass {display: none;}
+#propertiesOfGrandparentClass {display: none;}
+#definedTypecodeinstances {display: none;}
+#subclasses {display: none;}
+#superclasses {display: none;}
+#rangeinfo {display: none;}
+#domaininfo {display: none;}
+#havingrangeinfo {display: none;}
+#siblinginfo {display: none;}
+.termschema {display: none;}
+
 body {
   font-family: "Gotham SSm A", "Gotham SSm B", Verdana, sans-serif;
   line-height: 1.42857143;

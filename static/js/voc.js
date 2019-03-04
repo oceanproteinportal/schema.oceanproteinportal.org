@@ -42,6 +42,18 @@ $(function() {
   });
 });
 
+function viewDiagram() {
+  var $img = $('#diagram-image');
+  var $link = $('#view-diagram');
+  if ( $img.is(":visible") ) {
+    $link.text('View Diagram');
+    $img.hide();
+  } else {
+    $link.text('Hide Diagram');
+    $img.show();
+  }
+}
+
 function doSearch() {
   var searchTerm=$('#searchTerm').val();
   searchTerm=searchTerm.replace(/[ ]+$/,"");
@@ -1500,6 +1512,10 @@ function displayVocabulary(vocab) {
   });
   $('#doSearch').click( function() {
     doSearch();
+  });
+  $('#view-diagram').click( function( e ) {
+    e.preventDefault();
+    viewDiagram();
   });
 
   refreshCatchLinks();

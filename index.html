@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title id="page-title">Ocean Protein Portal Web Vocabulary</title>
+    <title id="page-title">Ocean Protein Portal - Data Type Ontology</title>
     <meta content="text/html;charset=UTF-8" http-equiv="Content-Type"></meta>
-    <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
-    <link rel="stylesheet" href="/css/bootstrap.min.css"></link>
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css"></link>
-    <link rel="stylesheet" href="/css/vocab.css"></link>
-    <script src="/js/es6-shim.min.js"></script>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-    <script id="vocab" src="/ontology.jsonld" type="application/ld+json"></script>
+    <link rel="shortcut icon" href="/static/images/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.min.css"></link>
+    <link rel="stylesheet" href="/static/css/vocab.css"></link>
+    <script src="/static/js/es6-shim.min.js"></script>
+    <script src="/static/js/jquery-2.1.0.min.js"></script>
+    <script id="vocab" src="/static/ontology.jsonld" type="application/ld+json"></script>
     <script id="vocab-globals">
       var ontology_title = 'Ocean Protein Portal - Data Type Ontology';
       var voc_base_uri="http://schema.oceanproteinportal.org/v1.0/";
@@ -39,7 +39,7 @@
       <div id="mainblock" >
 
         <ol id="breadcrumbTrail" class="breadcrumb">
-          <li id="currentClass">Ocean Protein Portal Web Vocabulary</li>
+          <li id="currentClass">Ocean Protein Portal - Data Type Ontology</li>
         </ol>
 
         <h1>
@@ -59,9 +59,12 @@
               <li><a href="./?show=classes" class="link">Browse all classes</a></li>
               <li><a href="./?show=properties" class="link">Browse all properties</a></li>
               <li><a href="./?show=namedindividuals" class="link">Browse all named individuals</a></li-->
-              <li><a href="/diagram.html">View Diagram</a></li>
+              <li><a href="#diagram" id="view-diagram">View Diagram</a></li>
             </ul>
           <hr/>
+          <div id="diagram-image" style="display: none">
+            <img style="width: 75%" src="https://raw.githubusercontent.com/oceanproteinportal/Data-Type-Ontology/master/diagrams/OPP_TotalSpectralCounts_DataType.png"/>
+          </div>
           <form action="./" method="post">
             <p id="searchBox"><input type="search" id="searchTerm" name="searchTerm" placeholder="single keyword"><input type="submit" id="doSearch" value="Search"></p>
           </form>
@@ -239,6 +242,6 @@
       <div id="date"><span class="label">Date:</span><span id="issued-date"></span></div>
     </div>
 
-    <script src="/js/voc.js"></script>
+    <script src="/static/js/voc.js"></script>
   </body>
 </html>

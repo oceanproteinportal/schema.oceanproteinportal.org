@@ -16,10 +16,28 @@
   },
   "@graph": [
     {
+      "@id": "opp:OtherIdentifiedProteins",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A list of other identified proteins within a sample."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Other Identified Proteins"
+      }
+    },
+    {
       "@id": "opp:BestSequestXCorrScore",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Score"
@@ -34,66 +52,28 @@
       }
     },
     {
-      "@id": "odo-dt:MaximumFilterSize",
+      "@id": "opp:ProteinIdentifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo:dependsOn": {
-        "@id": "odo-dt:MinimumFilterSize"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The maximum size of some filter."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Maximum Filter Size"
-      }
-    },
-    {
-      "@id": "odo-dt:Longitude_DecimalDegrees",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
-        "@id": "odo-dt:Longitude"
+        "@id": "odo-dt:Identifier"
       },
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "Longitude in decimal degrees where the values are bounded by -180 (West) and 1800 (East)."
+        "@value": "Uniquely identifies one proteins within a sample."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Longitude in Decical Degrees"
+        "@value": "Protein Identifier"
       }
-    },
-    {
-      "@id": "odo-dt:GeneticSequenceIdentifier",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo-dt:Identifier",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A genetic sequence; e.g. the order of nucleotides in DNA or RNA."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Genetic Sequence Identifier"
-      }
-    },
-    {
-      "@id": "dc:publisher",
-      "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "opp:KeggOrthologyDescription",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Description"
@@ -111,14 +91,294 @@
       }
     },
     {
+      "@id": "dc:publisher",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "opp:PfamsDescription",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Description"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The Pfams description related to an identified PFams Identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Pfams Description"
+      },
+      "skos:related": {
+        "@id": "odo-dt:PfamsIdentifier"
+      }
+    },
+    {
       "@id": "dcterms:creator",
       "@type": "owl:AnnotationProperty"
     },
     {
+      "@id": "dcterms:publisher",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "opp:UniprotIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a Uniprot identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Uniprot Identifier"
+      }
+    },
+    {
+      "@id": "opp:ProteinSpectralCounts",
+      "@type": [
+        "odo-dt:DataType",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:measures": [
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:CruiseIdentifier"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:UniprotIdentifier"
+        },
+        {
+          "@id": "opp:EnzymeCommissionIdentifier"
+        },
+        {
+          "@id": "odo-dt:MolecularWeight_Daltons"
+        },
+        {
+          "@id": "opp:KeggName"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "opp:PfamsDescription"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
+        },
+        {
+          "@id": "opp:OtherIdentifiedProteins"
+        },
+        {
+          "@id": "opp:IdentifiedProductName"
+        },
+        {
+          "@id": "opp:KeggIdentifier"
+        },
+        {
+          "@id": "odo-dt:Time"
+        },
+        {
+          "@id": "odo-dt:DateTime"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "opp:BestNCBITaxonName"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "opp:KeggDescription"
+        },
+        {
+          "@id": "opp:BestNCBITaxonIdentifier"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:PfamsIdentifier"
+        }
+      ],
+      "odo-dt:recommends": {
+        "@id": "odo-dt:Time"
+      },
+      "odo-dt:requires": [
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "opp:IdentifiedProductName"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
+        },
+        {
+          "@id": "odo-dt:CruiseIdentifier"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "odo-dt:Date"
+        }
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A data type that measures the total spectral counts across protein observations."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Protein Spectral Counts"
+      }
+    },
+    {
+      "@id": "dc:creator",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "opp:OceanProteinPortal_Total-Spectral-Counts_Diagram",
+      "@type": [
+        "odo-dt:EntityRelationshipDiagram",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:diagramsEntityRelationshipsFor": {
+        "@id": "opp:OceanProteinPortal_Total-Spectral-Counts"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A diagram of the Ocean Protein Portal Total Spectral Counts Dataset."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Diagram of Ocean Protein Portal Total Spectral Counts Dataset"
+      },
+      "schema:contentUrl": {
+        "@type": "xsd:anyURI",
+        "@value": "http://schema.oceanproteinportal.org/v1.0/diagram/OPP_TotalSpectralCounts_DataType.png"
+      },
+      "schema:encodingFormat": "image/png"
+    },
+    {
+      "@id": "opp:PeptideStopIndex",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Data useful in creating peptide coverage map"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Peptide stop index"
+      },
+      "skos:related": {
+        "@id": "odo-dt:PeptideStartIndex"
+      }
+    },
+    {
+      "@id": "opp:",
+      "@type": "owl:Ontology",
+      "dc:creator": "Adam Shepherd",
+      "dc:publisher": "Biological and Chemical Oceanography Data Management Office (BCO-DMO)",
+      "dcterms:creator": {
+        "@id": "http://orcid.org/0000-0003-4486-9448"
+      },
+      "dcterms:issued": {
+        "@type": "xsd:date",
+        "@value": "2019-03-02"
+      },
+      "dcterms:publisher": {
+        "@id": "http://lod.bco-dmo.org/id/affiliation/191"
+      },
+      "dcterms:source": {
+        "@type": "xsd:anyURI",
+        "@value": "https://github.com/oceanproteinportal/Data-Type-Ontology"
+      },
+      "owl:imports": [
+        {
+          "@id": "odo-dt:"
+        },
+        {
+          "@id": "odo:"
+        }
+      ],
+      "owl:versionInfo": "1.0",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An ontology for describing data types used by the Ocean Protein Portal"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Protein Portal - Data Type Ontology"
+      }
+    },
+    {
+      "@id": "opp:BestSequestDCnScore",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Score"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best SEQUEST DCn score"
+      }
+    },
+    {
       "@id": "opp:OceanProteinPortalDataType",
       "@type": [
-        "opp:DataType",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo-dt:DataType"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -130,136 +390,558 @@
       }
     },
     {
-      "@id": "opp:ProteinSpectralCounts",
+      "@id": "dcterms:source",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "opp:FASTA-ProteinIdentifications",
       "@type": [
-        "opp:DataType",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo-dt:DataType"
       ],
       "odo-dt:measures": [
         {
-          "@id": "odo-dt:Depth_Meters"
+          "@id": "opp:ProteinIdentifier"
         },
         {
-          "@id": "opp:BestNCBITaxonName"
+          "@id": "odo-dt:ProteinGeneticSequenceIdentifier"
+        }
+      ],
+      "odo-dt:requires": [
+        {
+          "@id": "odo-dt:ProteinGeneticSequenceIdentifier"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        }
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A data type that records the genetic sequence of an identified protein."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "FASTA File of Protein Identifications"
+      }
+    },
+    {
+      "@id": "opp:Plus4HSpectraCount",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:SpectralCount"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Number of identified +4H spectra"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Number of identified +4H spectra"
+      }
+    },
+    {
+      "@id": "opp:PeptideSpectralCounts",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo-dt:DataType"
+      ],
+      "odo-dt:measures": [
+        {
+          "@id": "opp:ProteinMolecularWeight_Daltons"
+        },
+        {
+          "@id": "odo-dt:TotalPrecursorIntensity"
         },
         {
           "@id": "odo-dt:MinFilterSize_Microns"
         },
         {
-          "@id": "odo-dt:CruiseStationIdentifier"
-        },
-        {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:Time"
-        },
-        {
-          "@id": "opp:EnzymeCommissionIdentifier"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "opp:KeggIdentifier"
-        },
-        {
-          "@id": "odo-dt:SampleIdentifier"
-        },
-        {
-          "@id": "odo-dt:DateTime"
-        },
-        {
-          "@id": "opp:PfamsDescription"
-        },
-        {
-          "@id": "opp:BestNCBITaxonIdentifier"
-        },
-        {
-          "@id": "opp:UniprotIdentifier"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
+          "@id": "odo-dt:CruiseIdentifier"
         },
         {
           "@id": "opp:OtherIdentifiedProteins"
         },
         {
-          "@id": "opp:PfamsIdentifier"
+          "@id": "opp:BestProteinIdentifierProbability"
         },
         {
-          "@id": "odo-dt:CruiseIdentifier"
-        },
-        {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "opp:KeggDescription"
-        },
-        {
-          "@id": "odo-dt:MolecularWeight_Daltons"
-        },
-        {
-          "@id": "opp:KeggName"
-        },
-        {
-          "@id": "odo-dt:SpectralCount"
-        },
-        {
-          "@id": "opp:IdentifiedProductName"
-        }
-      ],
-      "odo-dt:recommends": {
-        "@id": "odo-dt:Time"
-      },
-      "odo-dt:requires": [
-        {
-          "@id": "odo-dt:SampleIdentifier"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "odo-dt:CruiseIdentifier"
+          "@id": "opp:PeptideStopIndex"
         },
         {
           "@id": "odo-dt:CruiseStationIdentifier"
         },
         {
-          "@id": "opp:IdentifiedProductName"
+          "@id": "opp:Plus3HSpectraCount"
         },
         {
-          "@id": "odo-dt:SpectralCount"
+          "@id": "opp:Plus4HSpectraCount"
+        },
+        {
+          "@id": "opp:Plus2HSpectraCount"
+        },
+        {
+          "@id": "opp:PeptideStartIndex"
         },
         {
           "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "odo-dt:MedianRetentionTime"
+        },
+        {
+          "@id": "odo-dt:TotalIonChromatogram"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "opp:BestSequestDCnScore"
+        },
+        {
+          "@id": "opp:PeptideGeneticSequenceIdentifier"
+        },
+        {
+          "@id": "odo-dt:Time"
+        },
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:BestSequestXCorrScore"
+        },
+        {
+          "@id": "odo-dt:DateTime"
+        },
+        {
+          "@id": "opp:PeptideSpectralCountSum"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:AbsoluteUnits_FemtomolePerLiter"
+        }
+      ],
+      "odo-dt:recommends": [
+        {
+          "@id": "odo-dt:Time"
+        },
+        {
+          "@id": "opp:PeptideSpectralCountSum"
+        }
+      ],
+      "odo-dt:requires": [
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:PeptideGeneticSequenceIdentifier"
+        },
+        {
+          "@id": "opp:CruiseIdentifier"
+        },
+        {
+          "@id": "opp:PeptideStartIndex"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "opp:PeptideStopIndex"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        }
+      ],
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Tabular File of Peptide Spectral Counts"
+      }
+    },
+    {
+      "@id": "opp:KeggOrthologyName",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Name"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The Kegg pathway related to an identified Kegg Identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Kegg Orthology Name"
+      },
+      "skos:related": {
+        "@id": "odo-dt:KeggIdentifier"
+      }
+    },
+    {
+      "@id": "opp:BestNCBITaxonIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:NCBITaxonIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of the best taxon identifier at NCBI that could be associated to an identiciation."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best NCBI Taxon Identifier"
+      }
+    },
+    {
+      "@id": "opp:OceanProteomics",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo-dt:SubjectArea"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Ocean Proteomics"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Proteomics"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:Proteomics"
+      }
+    },
+    {
+      "@id": "opp:KeggOrthologyIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Kegg identifier or accession."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Kegg Orthology Identifier"
+      }
+    },
+    {
+      "@id": "opp:BestNCBITaxonName",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:NCBITaxonName"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The best taxonomic species name at NCBI related to a Taxon identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best NCBI Taxon Name"
+      },
+      "skos:related": {
+        "@id": "odo-dt:BestNCBITaxonIdentifier"
+      }
+    },
+    {
+      "@id": "opp:BestProteinIdentifierProbability",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:IdentificationProbability"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best Peptide identification probability"
+      }
+    },
+    {
+      "@id": "opp:ProteinGeneticSequenceIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:GeneticSequenceIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A genetic sequence identifying a protein."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Protein Genetic Sequence Identifier"
+      }
+    },
+    {
+      "@id": "opp:AbsoluteUnits_FemtomolePerLiter",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Absolute Units in femtomole per liter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Absolute Units in femtomole per liter"
+      }
+    },
+    {
+      "@id": "dcterms:issued",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "opp:Plus2HSpectraCount",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:SpectralCount"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Number of identified +2H spectra"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Number of identified +2H spectra"
+      }
+    },
+    {
+      "@id": "opp:EnzymeCommissionIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a Enzyme Commission identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Enzyme Commission Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideSpectralCountSum",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:SpectralCount"
+      },
+      "odo-dt:summationOf": [
+        {
+          "@id": "opp:Plus4HSpectraCount"
+        },
+        {
+          "@id": "opp:Plus3HSpectraCount"
+        },
+        {
+          "@id": "opp:Plus2HSpectraCount"
         }
       ],
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A data type that measures the total spectral counts across protein observations."
+        "@value": "Sum of +2,+3,+4 data, = total unnormalized spectral counts - Quantitative Value"
+      },
+      "rdfs:label": [
+        {
+          "@language": "en-US",
+          "@value": "Sum of the spectral counts"
+        },
+        {
+          "@language": "en-US",
+          "@value": "Spectral Count Sum"
+        }
+      ]
+    },
+    {
+      "@id": "opp:IdentifiedProductName",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Name"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The best product name for an identification made in a smaple (best hit annotation)."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Protein Spectral Counts"
+        "@value": "Identified Product Name"
+      },
+      "skos:related": {
+        "@id": "opp:ProteinIdentifier"
+      }
+    },
+    {
+      "@id": "opp:PfamsIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a Pfams identifier or accession."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Pfams Identifier"
+      }
+    },
+    {
+      "@id": "opp:Plus3HSpectraCount",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:SpectralCount"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Number of identified +3H spectra"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Number of identified +3H spectra"
+      }
+    },
+    {
+      "@id": "opp:PeptideStartIndex",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Data useful in creating peptide coverage map"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Peptide start index"
+      }
+    },
+    {
+      "@id": "opp:OceanProteinPortalDataType_Total-Spectral-Counts",
+      "@type": [
+        "odo-dt:DataType",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:aggregates": [
+        {
+          "@id": "opp:FASTA-ProteinIdentifications"
+        },
+        {
+          "@id": "opp:ProteinSpectralCounts"
+        },
+        {
+          "@id": "opp:PeptideSpectralCounts"
+        }
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A data type that measures the total spectral counts across protein observations and their peptides."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Protein Portal Data Type - Total Spectral Counts"
+      },
+      "rdfs:subClassOf": {
+        "@id": "opp:OceanProteinPortalDataType"
+      }
+    },
+    {
+      "@id": "opp:ProteinMolecularWeight_Daltons",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:MolecularWeightInDaltons"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The molecular weight measured in Daltons of the related protein."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Protein Molecular Weight in Daltons"
+      }
+    },
+    {
+      "@id": "opp:PeptideGeneticSequenceIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:GeneticSequenceIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A genetic sequence identifying a peptide."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Peptide Genetic Sequence Identifier"
       }
     },
     {

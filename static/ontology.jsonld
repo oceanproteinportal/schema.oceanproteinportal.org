@@ -16,562 +16,95 @@
   },
   "@graph": [
     {
-      "@id": "opp:BestSequestXCorrScore",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Score"
-      },
+      "@id": "odo:isInstanceOf",
+      "@type": "owl:ObjectProperty",
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "Metric of peptide quality."
+        "@value": "Links actual things to a conceptual idea of what that thing is."
+      },
+      "rdfs:domain": {
+        "@id": "owl:Thing"
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Best SEQUEST XCorr score"
-      }
-    },
-    {
-      "@id": "odo-dt:MaximumFilterSize",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo:dependsOn": {
-        "@id": "odo-dt:MinimumFilterSize"
+        "@value": "isInstanceOf"
       },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The maximum size of some filter."
+      "rdfs:range": {
+        "@id": "skos:Concept"
       },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Maximum Filter Size"
-      }
-    },
-    {
-      "@id": "odo-dt:Longitude_DecimalDegrees",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Longitude"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Longitude in decimal degrees where the values are bounded by -180 (West) and 1800 (East)."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Longitude in Decical Degrees"
-      }
-    },
-    {
-      "@id": "odo-dt:GeneticSequenceIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "odo-dt:Identifier",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A genetic sequence; e.g. the order of nucleotides in DNA or RNA."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Genetic Sequence Identifier"
-      }
-    },
-    {
-      "@id": "dc:publisher",
-      "@type": "owl:AnnotationProperty"
-    },
-    {
-      "@id": "opp:KeggOrthologyDescription",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Description"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The Kegg description related to an identified Kegg Identifier."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Kegg Orthology Description"
-      },
-      "skos:related": {
-        "@id": "opp:KeggOrthologyIdentifier"
-      }
-    },
-    {
-      "@id": "dcterms:creator",
-      "@type": "owl:AnnotationProperty"
-    },
-    {
-      "@id": "odo-dt:Depth",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A depth."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Depth"
-      }
-    },
-    {
-      "@id": "opp:ProteinSpectralCounts",
-      "@type": [
-        "odo-dt:DataType",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:measures": [
+      "rdfs:subPropertyOf": [
         {
-          "@id": "odo-dt:CruiseStationIdentifier"
+          "@id": "rdfs:isDefinedBy"
         },
         {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
-        },
-        {
-          "@id": "opp:OtherIdentifiedProteins"
-        },
-        {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
-        },
-        {
-          "@id": "opp:KeggDescription"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "odo-dt:SampleIdentifier"
-        },
-        {
-          "@id": "opp:EnzymeCommissionIdentifier"
-        },
-        {
-          "@id": "odo-dt:SpectralCount"
-        },
-        {
-          "@id": "odo-dt:MolecularWeight_Daltons"
-        },
-        {
-          "@id": "odo-dt:Time"
-        },
-        {
-          "@id": "odo-dt:CruiseIdentifier"
-        },
-        {
-          "@id": "opp:UniprotIdentifier"
-        },
-        {
-          "@id": "opp:PfamsDescription"
-        },
-        {
-          "@id": "odo-dt:Depth_Meters"
-        },
-        {
-          "@id": "odo-dt:DateTime"
-        },
-        {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "opp:BestNCBITaxonIdentifier"
-        },
-        {
-          "@id": "opp:IdentifiedProductName"
-        },
-        {
-          "@id": "opp:PfamsIdentifier"
-        },
-        {
-          "@id": "opp:KeggName"
-        },
-        {
-          "@id": "opp:BestNCBITaxonName"
-        },
-        {
-          "@id": "opp:KeggIdentifier"
+          "@id": "skos:related"
         }
-      ],
-      "odo-dt:recommends": {
-        "@id": "odo-dt:Time"
-      },
-      "odo-dt:requires": [
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:SampleIdentifier"
-        },
-        {
-          "@id": "opp:IdentifiedProductName"
-        },
-        {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "odo-dt:CruiseStationIdentifier"
-        },
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "odo-dt:Depth_Meters"
-        },
-        {
-          "@id": "odo-dt:CruiseIdentifier"
-        },
-        {
-          "@id": "odo-dt:SpectralCount"
-        }
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A data type that measures the total spectral counts across protein observations."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Protein Spectral Counts"
-      }
+      ]
     },
     {
-      "@id": "odo-dt:DataType",
+      "@id": "odo:Parameter",
       "@type": "owl:Class",
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A data type can include more meaning beyond the syntax, such as who created the\n        data type, the source standard that the data type derives from,\n        the operations that can be done on datasets of that data type, and\n        typical scientific domains, software programs and/or instruments\n        that use the data type, etc. The intent is that any humans or\n        machines that when they encounter that data type can quickly\n        'understand' or be in a situation to at least 'process' details\n        within the dataset without even downloading that dataset."
+        "@value": "A conceptual notion for some property of a feature of interest."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "DataType"
-      }
-    },
-    {
-      "@id": "odo-dt:dependsOn",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "This parameter depends on the existence on another parameter."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "dependsOn"
-      },
-      "rdfs:range": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "skos:related"
-      }
-    },
-    {
-      "@id": "dcterms:hasPart",
-      "@type": "owl:AnnotationProperty"
-    },
-    {
-      "@id": "dcterms:source",
-      "@type": "owl:AnnotationProperty"
-    },
-    {
-      "@id": "_:ub41bL740C1",
-      "@type": "owl:Restriction",
-      "owl:cardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:inferredValueTarget"
+        "@value": "Parameter"
       },
       "rdfs:subClassOf": {
-        "@id": "odo-dt:InferredParameter"
+        "@id": "skos:Concept"
       }
     },
     {
-      "@id": "opp:OceanMetaproteomics",
-      "@type": [
-        "odo-dt:SubjectArea",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Metaproteomics of the ocean."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Ocean Metaproteomics"
-      }
-    },
-    {
-      "@id": "odo-dt:inferredParameter",
-      "@type": [
-        "owl:ObjectProperty",
-        "owl:AnnontationProperty"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "This inferred parameter stores the value of the parameter in range."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "inferredParameter"
-      },
-      "rdfs:range": {
-        "@id": "odo:InferredParameter"
-      }
-    },
-    {
-      "@id": "odo-dt:CruiseResults",
-      "@type": [
-        "odo:DataType",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:measures": {
-        "@id": "odo-dt:CruiseIdentifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A dataset collected from one or more cruises."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Cruise Results"
-      }
-    },
-    {
-      "@id": "odo-dt:cruiseIdentifierProperty",
-      "rdf:first": {
-        "@id": "dc:title"
-      },
-      "rdf:rest": {
-        "@list": []
-      }
-    },
-    {
-      "@id": "odo-dt:StationIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Representative of a particular station."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Station Identifier"
-      }
-    },
-    {
-      "@id": "odo-dt:Probability",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A probability of some thing."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Probabiliy"
-      }
-    },
-    {
-      "@id": "odo-dt:summationOf",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The value of this Parameter is the summation of Parameters attached by this property."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "summationOf"
-      },
-      "rdfs:range": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "skos:related"
-      }
-    },
-    {
-      "@id": "opp:BestNCBITaxonName",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:NCBITaxonName"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The best taxonomic species name at NCBI related to a Taxon identifier."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Best NCBI Taxon Name"
-      },
-      "skos:related": {
-        "@id": "opp:BestNCBITaxonIdentifier"
-      }
-    },
-    {
-      "@id": "opp:ProteinGeneticSequenceIdentifier",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:GeneticSequenceIdentifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A genetic sequence identifying a protein."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Protein Genetic Sequence Identifier"
-      }
-    },
-    {
-      "@id": "odo-dt:requires",
+      "@id": "odo:storesValuesFor",
       "@type": "owl:ObjectProperty",
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "Specifies that a DataType must include the associated Parameter."
+        "@value": ""
       },
       "rdfs:domain": {
-        "@id": "odo-dt:DataType"
+        "@id": "odo:Dataset"
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "requires"
+        "@value": "storesValuesFor"
       },
       "rdfs:range": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "odo-dt:measures"
+        "@id": "odo:MonitoredProperty"
       }
     },
     {
-      "@id": "odo-dt:Identifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An identifier of some 'thing'. Identifiers can be used as keys between datasets, \n        data files or other data representations."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Identifier"
-      }
-    },
-    {
-      "@id": "odo-dt:SubjectArea",
+      "@id": "odo:Dataset",
       "@type": "owl:Class",
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A certain field of study used to group or filter Data Types"
+        "@value": "A super class for discovering any type of oceanographic dataset."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "SubjectArea"
-      }
-    },
-    {
-      "@id": "dcterms:issued",
-      "@type": "owl:AnnotationProperty"
-    },
-    {
-      "@id": "opp:EnzymeCommissionIdentifier",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Representative of a Enzyme Commission identifier."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Enzyme Commission Identifier"
-      }
-    },
-    {
-      "@id": "_:ub41bL730C1",
-      "@type": "owl:Restriction",
-      "owl:minCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "2"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:aggregates"
+        "@value": "Dataset"
       },
       "rdfs:subClassOf": {
-        "@id": "odo-dt:DataType"
+        "@id": "odo:CreativeWork"
       }
     },
     {
-      "@id": "odo-dt:aggregates",
-      "@type": "owl:ObjectProperty",
+      "@id": "odo:MonitoredProperty",
+      "@type": "owl:Class",
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "Aggregates means that the domain DataType is a new DataType that requires \n        at least one instance of the aggregates range."
-      },
-      "rdfs:domain": {
-        "@id": "odo-dt:DataType"
+        "@value": "A MonitoredProperty is the recording of some quality or quantity of a property of some feature of interest."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "aggregates"
+        "@value": "Monitored Property"
       },
-      "rdfs:range": {
-        "@id": "odo-dt:DataType"
+      "rdfs:subClassOf": {
+        "@id": "skos:Concept"
       }
     },
+    
     {
       "@id": "opp:OceanProteinPortalDataType_Total-Spectral-Counts",
       "@type": [
@@ -602,21 +135,6 @@
       }
     },
     {
-      "@id": "odo-dt:EntityRelationshipDiagram",
-      "@type": "owl:Class",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An image that explains the entity-relationship model for a starting class."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "EntityRelationshipDiagram"
-      },
-      "rdfs:subClassOf": {
-        "@id": "schema:ImageObject"
-      }
-    },
-    {
       "@id": "opp:ProteinIdentifier",
       "@type": [
         "owl:NamedIndividual",
@@ -633,47 +151,6 @@
         "@language": "en-US",
         "@value": "Protein Identifier"
       }
-    },
-    {
-      "@id": "odo-dt:FilterSize",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "dcterms:hasPart": [
-        {
-          "@id": "odo-dt:MinimumFilterSize"
-        },
-        {
-          "@id": "odo-dt:MaximumFilterSize"
-        }
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The size of some filter."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Filter Size"
-      }
-    },
-    {
-      "@id": "_:ub41bL745C1",
-      "@type": "owl:Restriction",
-      "owl:cardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:inferredValueTargetProperty"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo-dt:InferredParameter"
-      }
-    },
-    {
-      "@id": "skos:altLabel",
-      "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "opp:UniprotIdentifier",
@@ -749,75 +226,6 @@
       }
     },
     {
-      "@id": "odo-dt:Score",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An arbitrary value representing the quality of some thing."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Score"
-      }
-    },
-    {
-      "@id": "odo-dt:MinimumFilterSize",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo:dependsOn": {
-        "@id": "odo-dt:MaximumFilterSize"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The minimum size of some filter."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Filter Size"
-      }
-    },
-    {
-      "@id": "odo-dt:dataValueDelimiter",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "For parameters whose data value is a list of multiple values, this property defines a string \n        that determines how that value should be parsed into a list of values by specifying the string identifying \n        where the value should be split."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "delimiter"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo-dt:dataType",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies that a Dataset meets the criteria for a certain DataType."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "dataType"
-      },
-      "rdfs:range": {
-        "@id": "odo-dt:DataType"
-      }
-    },
-    {
       "@id": "opp:KeggOrthologyName",
       "@type": [
         "owl:NamedIndividual",
@@ -857,57 +265,6 @@
       }
     },
     {
-      "@id": "odo-dt:Date",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A year, month, and day represented in some recognized format."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Date"
-      }
-    },
-    {
-      "@id": "odo-dt:MolecularWeight_Daltons",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:MolecularWeight"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The molecular weight measured in Daltons."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Molecular Weight in Daltons"
-      }
-    },
-    {
-      "@id": "odo-dt:Latitude_DecimalDegrees",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Latitude"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Latitude in decimal degrees where the values are bounded by -90 (South) and 90 (North)."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Latitude in Decimal Degress"
-      }
-    },
-    {
       "@id": "opp:AbsoluteUnits_FemtomolePerLiter",
       "@type": [
         "owl:NamedIndividual",
@@ -921,52 +278,6 @@
         "@language": "en-US",
         "@value": "Absolute Units in femtomole per liter"
       }
-    },
-    {
-      "@id": "odo-dt:Name",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An identified name for a thing."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Name"
-      }
-    },
-    {
-      "@id": "odo-dt:Time",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An hour, minutes, and seconds represented in some recognized format."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Date"
-      }
-    },
-    {
-      "@id": "odo-dt:TotalIonChromatogram",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Total Ion Chromatogram"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Total Ion Chromatogram"
-      },
-      "skos:altLabel": "TIC"
     },
     {
       "@id": "opp:IdentifiedProductName",
@@ -990,51 +301,6 @@
       }
     },
     {
-      "@id": "odo-dt:Longitude",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Longitude."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Longitude"
-      }
-    },
-    {
-      "@id": "odo-dt:MedianRetentionTime",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Median Retention Time"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Median Retention Time"
-      }
-    },
-    {
-      "@id": "odo-dt:MolecularWeight",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The molecular weight."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Molecular Weight"
-      }
-    },
-    {
       "@id": "opp:OtherIdentifiedProteins",
       "@type": [
         "odo:Parameter",
@@ -1051,79 +317,6 @@
         "@language": "en-US",
         "@value": "Other Identified Proteins"
       }
-    },
-    {
-      "@id": "odo-dt:Proteomics",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo-dt:SubjectArea"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Proteomics"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Proteomics"
-      }
-    },
-    {
-      "@id": "odo-dt:NCBITaxonIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An NCBI identifier for a certain taxa."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "NCBI Taxon Identifier"
-      }
-    },
-    {
-      "@id": "odo-dt:measures",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies that a DataType should include the associated Parameter."
-      },
-      "rdfs:domain": {
-        "@id": "odo-dt:DataType"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "measures"
-      },
-      "rdfs:range": {
-        "@id": "odo:Parameter"
-      }
-    },
-    {
-      "@id": "odo-dt:extends",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Extends means that the domain DataType is a specialization of the range DataType \n        by inheriting the range's Parameters but also incluing new Parameters as part of the specialization."
-      },
-      "rdfs:domain": {
-        "@id": "odo-dt:DataType"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "extends"
-      },
-      "rdfs:range": {
-        "@id": "odo-dt:DataType"
-      }
-    },
-    {
-      "@id": "dcterms:publisher",
-      "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "opp:OceanProteinPortal_Total-Spectral-Counts_Diagram",
@@ -1149,23 +342,6 @@
       "schema:encodingFormat": "image/png"
     },
     {
-      "@id": "_:ub41bL759C1",
-      "@type": "owl:Axiom",
-      "owl:annotatedProperty": {
-        "@id": "owl:propertyChainAxiom"
-      },
-      "owl:annotatedSource": {
-        "@id": "odo-dt:hasCruiseIdentifierPath"
-      },
-      "owl:annotatedTarget": {
-        "@id": "odo-dt:cruiseIdentifierProperty"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A cruise's title is the inferred value of the 'CruiseIdentifier' parameter for a dataset."
-      }
-    },
-    {
       "@id": "opp:BestSequestDCnScore",
       "@type": [
         "odo:Parameter",
@@ -1181,41 +357,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Best SEQUEST DCn score"
-      }
-    },
-    {
-      "@id": "odo-dt:",
-      "@type": "owl:Ontology",
-      "dc:creator": "Adam Shepherd",
-      "dc:publisher": "Biological and Chemical Oceanography Data Management Office (BCO-DMO)",
-      "dcterms:creator": {
-        "@id": "http://orcid.org/0000-0003-4486-9448"
-      },
-      "dcterms:issued": {
-        "@type": "xsd:date",
-        "@value": "2017-09-04"
-      },
-      "dcterms:publisher": {
-        "@id": "http://lod.bco-dmo.org/id/affiliation/191"
-      },
-      "dcterms:source": {
-        "@type": "xsd:anyURI",
-        "@value": "https://github.com/BCODMO/Ocean-Data-Ontology_Data-Type"
-      },
-      "owl:imports": {
-        "@id": "odo:"
-      },
-      "owl:versionInfo": "1.0",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An ontology for describing data types used by BCO-DMO"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Ocean Data Ontology - Data Type Extension"
-      },
-      "rdfs:seeAlso": {
-        "@id": "http://info.deepcarbon.net/schema#DataType"
       }
     },
     {
@@ -1250,39 +391,6 @@
       }
     },
     {
-      "@id": "odo-dt:Depth_Meters",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Depth"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A depth measurement made in meters."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Depth in Meters"
-      }
-    },
-    {
-      "@id": "odo-dt:Description",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A descirption of a thing."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Dewscription"
-      }
-    },
-    {
       "@id": "opp:Plus4HSpectraCount",
       "@type": [
         "odo:Parameter",
@@ -1298,106 +406,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Number of identified +4H spectra"
-      }
-    },
-    {
-      "@id": "odo-dt:NCBITaxonName",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Name"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The taxonomic species name at NCBI related to an NCBI identifier."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "NCBI Taxon Name"
-      }
-    },
-    {
-      "@id": "odo-dt:recommends",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies that a DataType recommends that the associated Parameter be present, \n        but does not require it."
-      },
-      "rdfs:domain": {
-        "@id": "odo-dt:DataType"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "recommends"
-      },
-      "rdfs:range": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "odo-dt:measures"
-      }
-    },
-    {
-      "@id": "odo-dt:SampleIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Uniquely identifies one sample within a dataset."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Sample Identifier"
-      }
-    },
-    {
-      "@id": "schema:encodingFormat",
-      "@type": "owl:AnnontationProperty"
-    },
-    {
-      "@id": "odo-dt:Latitude",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Latitude."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Latitude"
-      }
-    },
-    {
-      "@id": "odo-dt:SpectralCount",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Count"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The spectral count for an identifified protein."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Spectral Count"
-      }
-    },
-    {
-      "@id": "odo-dt:hasCruiseIdentifierPath",
-      "owl:propertyChainAxiom": {
-        "@id": "_:ub41bL764C55"
       }
     },
     {
@@ -1436,24 +444,6 @@
       ]
     },
     {
-      "@id": "odo-dt:CruiseIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Representative of a cruise or some other named deployment."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Cruise Identifier"
-      }
-    },
-    {
       "@id": "opp:Plus3HSpectraCount",
       "@type": [
         "odo:Parameter",
@@ -1469,51 +459,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Number of identified +3H spectra"
-      }
-    },
-    {
-      "@id": "schema:contentUrl",
-      "@type": "owl:AnnontationProperty"
-    },
-    {
-      "@id": "_:ub41bL764C55",
-      "rdf:first": {
-        "@id": "odo:fromDeployment"
-      },
-      "rdf:rest": {
-        "@id": "odo-dt:cruiseIdentifierProperty"
-      }
-    },
-    {
-      "@id": "odo-dt:subjectArea",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies that the SubjectArea pertains to the observations made for a DataType."
-      },
-      "rdfs:domain": {
-        "@id": "odo-dt:DataType"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "subjectArea"
-      },
-      "rdfs:range": {
-        "@id": "odo-dt:SubjectArea"
-      }
-    },
-    {
-      "@id": "_:ub41bL735C1",
-      "@type": "owl:Restriction",
-      "owl:minCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "2"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:summationOf"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo:Parameter"
       }
     },
     {
@@ -1538,51 +483,6 @@
       }
     },
     {
-      "@id": "odo-dt:datasetCruiseIdentifier",
-      "@type": "owl:DatatypeProperty",
-      "odo-dt:inferredParameter": {
-        "@id": "odo-dt:CruiseIdentifier"
-      },
-      "owl:propertyChainAxiom": {
-        "@id": "odo-dt:hasCruiseIdentifierPath"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies the inferred Cruise Identifier(s) based on the dataset metadata."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Dataset"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "datasetCruiseIdentifier"
-      },
-      "rdfs:range": {
-        "@id": "xsd:string"
-      }
-    },
-    {
-      "@id": "odo-dt:entityRelationshipDiagram",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Specifies that a Class and its entity relationships are described by a diagram."
-      },
-      "rdfs:domain": {
-        "@id": "owl:Class"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "entityRelationshipDiagram"
-      },
-      "rdfs:range": {
-        "@id": "odo-dt:EntityRelationshipDiagram"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "schema:subjectOf"
-      }
-    },
-    {
       "@id": "opp:PeptideStopIndex",
       "@type": [
         "odo:Parameter",
@@ -1599,50 +499,6 @@
       "skos:related": {
         "@id": "opp:PeptideStartIndex"
       }
-    },
-    {
-      "@id": "odo-dt:MaxFilterSize_Microns",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:MaximumFilterSize"
-      },
-      "odo:dependsOn": {
-        "@id": "odo-dt:MinFilterSizeInMicrons"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The maximum filter size measured in microns."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Maximum Filter Size in Microns"
-      }
-    },
-    {
-      "@id": "odo-dt:DataTypeDiagram",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo-dt:EntityRelationshipDiagram"
-      ],
-      "odo-dt:diagramsEntityRelationshipsFor": {
-        "@id": "odo-dt:DataType"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A diagram of the Ocean Data Ontology - Data Type Extension."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Diagram of Ocean Data Ontology - Data Type Extension"
-      },
-      "schema:contentUrl": {
-        "@type": "xsd:anyURI",
-        "@value": "http://ocean-data.org/schema/data-type/v1.0/diagram/DataType.png"
-      },
-      "schema:encodingFormat": "image/png"
     },
     {
       "@id": "opp:OceanProteinPortalDataType",
@@ -1672,66 +528,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Peptide start index"
-      }
-    },
-    {
-      "@id": "odo-dt:dataValueFormat",
-      "@type": "owl:DatatypeProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A string, indicating a format for the data value that enables correct processing of the value. \n        For example, a date value may have a format such as 'YYYY-MM-DD'. Since the a format specified here are \n        implementation specific, this definition does not enforce any particular range on this property."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "dataValueFormat"
-      },
-      "rdfs:range": {
-        "@id": "owl:Thing"
-      }
-    },
-    {
-      "@id": "odo-dt:MinFilterSize_Microns",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:MinimumFilterSize"
-      },
-      "odo:dependsOn": {
-        "@id": "odo-dt:MaxFilterSizeInMicrons"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "The minimum filter size measured in microns."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Minimum Filter Size in Microns"
-      }
-    },
-    {
-      "@id": "odo-dt:specializationOf",
-      "@type": "owl:ObjectProperty",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "This parameter is narrower version of its range. It a specialization of its range \n        by because of some detail such as a specific unit of measure or becuase it was observed \n        using a specific instrument."
-      },
-      "rdfs:domain": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "specializationOf"
-      },
-      "rdfs:range": {
-        "@id": "odo:Parameter"
-      },
-      "rdfs:subPropertyOf": {
-        "@id": "rdfs:subClassOf"
       }
     },
     {
@@ -1878,36 +674,6 @@
       }
     },
     {
-      "@id": "odo-dt:InferredParamter",
-      "@type": "owl:Class",
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "An inferred parameter is a parameter whoa value is not explicitly recorded in the Dataset, \n        but that can be inferred based on its data type and related metadata. For example, dataset collected on a Cruise \n        might not explicitly record the cruise in the dataset, but that it can be inferred through the metadata: \n        (odo:Dataset -> odo:fromDeployment [ dc:title ])."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "InferredParamter"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo:Parameter"
-      }
-    },
-    {
-      "@id": "odo-dt:Count",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A numberic quantity measuring the occurrence of some thing."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Count"
-      }
-    },
-    {
       "@id": "opp:KeggOrthologyIdentifier",
       "@type": [
         "owl:NamedIndividual",
@@ -1941,6 +707,1353 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Best Peptide identification probability"
+      }
+    },
+    {
+      "@id": "opp:Plus2HSpectraCount",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:SpectralCount"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Number of identified +2H spectra"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Number of identified +2H spectra"
+      }
+    },
+    {
+      "@id": "opp:PfamsIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a Pfams identifier or accession."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Pfams Identifier"
+      }
+    },
+    {
+      "@id": "opp:PeptideGeneticSequenceIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:GeneticSequenceIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A genetic sequence identifying a peptide."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Peptide Genetic Sequence Identifier"
+      }
+    },
+    {
+      "@id": "opp:OceanMetaproteomics",
+      "@type": [
+        "odo-dt:SubjectArea",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Metaproteomics of the ocean."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Metaproteomics"
+      }
+    },
+    {
+      "@id": "opp:ProteinSpectralCounts",
+      "@type": [
+        "odo-dt:DataType",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:measures": [
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:OtherIdentifiedProteins"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:KeggDescription"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "opp:EnzymeCommissionIdentifier"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
+        },
+        {
+          "@id": "odo-dt:MolecularWeight_Daltons"
+        },
+        {
+          "@id": "odo-dt:Time"
+        },
+        {
+          "@id": "odo-dt:CruiseIdentifier"
+        },
+        {
+          "@id": "opp:UniprotIdentifier"
+        },
+        {
+          "@id": "opp:PfamsDescription"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:DateTime"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "opp:BestNCBITaxonIdentifier"
+        },
+        {
+          "@id": "opp:IdentifiedProductName"
+        },
+        {
+          "@id": "opp:PfamsIdentifier"
+        },
+        {
+          "@id": "opp:KeggName"
+        },
+        {
+          "@id": "opp:BestNCBITaxonName"
+        },
+        {
+          "@id": "opp:KeggIdentifier"
+        }
+      ],
+      "odo-dt:recommends": {
+        "@id": "odo-dt:Time"
+      },
+      "odo-dt:requires": [
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "opp:IdentifiedProductName"
+        },
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:CruiseIdentifier"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
+        }
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A data type that measures the total spectral counts across protein observations."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Protein Spectral Counts"
+      }
+    },
+    {
+      "@id": "opp:BestNCBITaxonName",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:NCBITaxonName"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The best taxonomic species name at NCBI related to a Taxon identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best NCBI Taxon Name"
+      },
+      "skos:related": {
+        "@id": "opp:BestNCBITaxonIdentifier"
+      }
+    },
+    {
+      "@id": "opp:ProteinGeneticSequenceIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:GeneticSequenceIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A genetic sequence identifying a protein."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Protein Genetic Sequence Identifier"
+      }
+    },
+    {
+      "@id": "opp:BestSequestXCorrScore",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Score"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Metric of peptide quality."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Best SEQUEST XCorr score"
+      }
+    },
+    {
+      "@id": "opp:KeggOrthologyDescription",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Description"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The Kegg description related to an identified Kegg Identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Kegg Orthology Description"
+      },
+      "skos:related": {
+        "@id": "opp:KeggOrthologyIdentifier"
+      }
+    },
+    
+    {
+      "@id": "odo-dt:DataType",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A data type can include more meaning beyond the syntax, such as who created the\n        data type, the source standard that the data type derives from,\n        the operations that can be done on datasets of that data type, and\n        typical scientific domains, software programs and/or instruments\n        that use the data type, etc. The intent is that any humans or\n        machines that when they encounter that data type can quickly\n        'understand' or be in a situation to at least 'process' details\n        within the dataset without even downloading that dataset."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "DataType"
+      }
+    },
+    {
+      "@id": "odo-dt:MaximumFilterSize",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo:dependsOn": {
+        "@id": "odo-dt:MinimumFilterSize"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The maximum size of some filter."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Maximum Filter Size"
+      }
+    },
+    {
+      "@id": "odo-dt:Longitude_DecimalDegrees",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Longitude"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Longitude in decimal degrees where the values are bounded by -180 (West) and 1800 (East)."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Longitude in Decical Degrees"
+      }
+    },
+    {
+      "@id": "odo-dt:GeneticSequenceIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "odo-dt:Identifier",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A genetic sequence; e.g. the order of nucleotides in DNA or RNA."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Genetic Sequence Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:Depth",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A depth."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Depth"
+      }
+    },
+    {
+      "@id": "odo-dt:dependsOn",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "This parameter depends on the existence on another parameter."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "dependsOn"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "skos:related"
+      }
+    },
+    {
+      "@id": "_:ub41bL740C1",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:inferredValueTarget"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:InferredParameter"
+      }
+    },
+    {
+      "@id": "odo-dt:inferredParameter",
+      "@type": [
+        "owl:ObjectProperty",
+        "owl:AnnontationProperty"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "This inferred parameter stores the value of the parameter in range."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "inferredParameter"
+      },
+      "rdfs:range": {
+        "@id": "odo:InferredParameter"
+      }
+    },
+    {
+      "@id": "odo-dt:CruiseResults",
+      "@type": [
+        "odo:DataType",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:measures": {
+        "@id": "odo-dt:CruiseIdentifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A dataset collected from one or more cruises."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Cruise Results"
+      }
+    },
+    {
+      "@id": "odo-dt:cruiseIdentifierProperty",
+      "rdf:first": {
+        "@id": "dc:title"
+      },
+      "rdf:rest": {
+        "@list": []
+      }
+    },
+    {
+      "@id": "odo-dt:StationIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a particular station."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Station Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:Probability",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A probability of some thing."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Probabiliy"
+      }
+    },
+    {
+      "@id": "odo-dt:summationOf",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The value of this Parameter is the summation of Parameters attached by this property."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "summationOf"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "skos:related"
+      }
+    },
+    {
+      "@id": "odo-dt:requires",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that a DataType must include the associated Parameter."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "requires"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "odo-dt:measures"
+      }
+    },
+    {
+      "@id": "odo-dt:Identifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An identifier of some 'thing'. Identifiers can be used as keys between datasets, \n        data files or other data representations."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:SubjectArea",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A certain field of study used to group or filter Data Types"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "SubjectArea"
+      }
+    },
+    {
+      "@id": "dcterms:issued",
+      "@type": "owl:AnnotationProperty"
+    },
+    {
+      "@id": "_:ub41bL730C1",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "2"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:aggregates"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:DataType"
+      }
+    },
+    {
+      "@id": "odo-dt:aggregates",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Aggregates means that the domain DataType is a new DataType that requires \n        at least one instance of the aggregates range."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "aggregates"
+      },
+      "rdfs:range": {
+        "@id": "odo-dt:DataType"
+      }
+    },
+    {
+      "@id": "odo-dt:EntityRelationshipDiagram",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An image that explains the entity-relationship model for a starting class."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "EntityRelationshipDiagram"
+      },
+      "rdfs:subClassOf": {
+        "@id": "schema:ImageObject"
+      }
+    },
+    {
+      "@id": "opp:EnzymeCommissionIdentifier",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a Enzyme Commission identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Enzyme Commission Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:FilterSize",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "dcterms:hasPart": [
+        {
+          "@id": "odo-dt:MinimumFilterSize"
+        },
+        {
+          "@id": "odo-dt:MaximumFilterSize"
+        }
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The size of some filter."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Filter Size"
+      }
+    },
+    {
+      "@id": "_:ub41bL745C1",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:inferredValueTargetProperty"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:InferredParameter"
+      }
+    },
+    {
+      "@id": "odo-dt:Score",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An arbitrary value representing the quality of some thing."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Score"
+      }
+    },
+    {
+      "@id": "odo-dt:MinimumFilterSize",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo:dependsOn": {
+        "@id": "odo-dt:MaximumFilterSize"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The minimum size of some filter."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Filter Size"
+      }
+    },
+    {
+      "@id": "odo-dt:dataValueDelimiter",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "For parameters whose data value is a list of multiple values, this property defines a string \n        that determines how that value should be parsed into a list of values by specifying the string identifying \n        where the value should be split."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "delimiter"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo-dt:dataType",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that a Dataset meets the criteria for a certain DataType."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "dataType"
+      },
+      "rdfs:range": {
+        "@id": "odo-dt:DataType"
+      }
+    },
+    {
+      "@id": "odo-dt:Date",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A year, month, and day represented in some recognized format."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Date"
+      }
+    },
+    {
+      "@id": "odo-dt:MolecularWeight_Daltons",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:MolecularWeight"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The molecular weight measured in Daltons."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Molecular Weight in Daltons"
+      }
+    },
+    {
+      "@id": "odo-dt:Latitude_DecimalDegrees",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Latitude"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Latitude in decimal degrees where the values are bounded by -90 (South) and 90 (North)."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Latitude in Decimal Degress"
+      }
+    },
+    {
+      "@id": "odo-dt:Name",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An identified name for a thing."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Name"
+      }
+    },
+    {
+      "@id": "odo-dt:Time",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An hour, minutes, and seconds represented in some recognized format."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Date"
+      }
+    },
+    {
+      "@id": "odo-dt:TotalIonChromatogram",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Total Ion Chromatogram"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Total Ion Chromatogram"
+      },
+      "skos:altLabel": "TIC"
+    },
+    {
+      "@id": "odo-dt:Longitude",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Longitude."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Longitude"
+      }
+    },
+    {
+      "@id": "odo-dt:MedianRetentionTime",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Median Retention Time"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Median Retention Time"
+      }
+    },
+    {
+      "@id": "odo-dt:MolecularWeight",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The molecular weight."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Molecular Weight"
+      }
+    },
+    {
+      "@id": "odo-dt:Proteomics",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo-dt:SubjectArea"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Proteomics"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Proteomics"
+      }
+    },
+    {
+      "@id": "odo-dt:NCBITaxonIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An NCBI identifier for a certain taxa."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "NCBI Taxon Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:measures",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that a DataType should include the associated Parameter."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "measures"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      }
+    },
+    {
+      "@id": "odo-dt:extends",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Extends means that the domain DataType is a specialization of the range DataType \n        by inheriting the range's Parameters but also incluing new Parameters as part of the specialization."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "extends"
+      },
+      "rdfs:range": {
+        "@id": "odo-dt:DataType"
+      }
+    },
+    {
+      "@id": "_:ub41bL759C1",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "owl:propertyChainAxiom"
+      },
+      "owl:annotatedSource": {
+        "@id": "odo-dt:hasCruiseIdentifierPath"
+      },
+      "owl:annotatedTarget": {
+        "@id": "odo-dt:cruiseIdentifierProperty"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A cruise's title is the inferred value of the 'CruiseIdentifier' parameter for a dataset."
+      }
+    },
+    {
+      "@id": "odo-dt:",
+      "@type": "owl:Ontology",
+      "dc:creator": "Adam Shepherd",
+      "dc:publisher": "Biological and Chemical Oceanography Data Management Office (BCO-DMO)",
+      "dcterms:creator": {
+        "@id": "http://orcid.org/0000-0003-4486-9448"
+      },
+      "dcterms:issued": {
+        "@type": "xsd:date",
+        "@value": "2017-09-04"
+      },
+      "dcterms:publisher": {
+        "@id": "http://lod.bco-dmo.org/id/affiliation/191"
+      },
+      "dcterms:source": {
+        "@type": "xsd:anyURI",
+        "@value": "https://github.com/BCODMO/Ocean-Data-Ontology_Data-Type"
+      },
+      "owl:imports": {
+        "@id": "odo:"
+      },
+      "owl:versionInfo": "1.0",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An ontology for describing data types used by BCO-DMO"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Data Ontology - Data Type Extension"
+      },
+      "rdfs:seeAlso": {
+        "@id": "http://info.deepcarbon.net/schema#DataType"
+      }
+    },
+    {
+      "@id": "odo-dt:Depth_Meters",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Depth"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A depth measurement made in meters."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Depth in Meters"
+      }
+    },
+    {
+      "@id": "odo-dt:Description",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A descirption of a thing."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Dewscription"
+      }
+    },
+    {
+      "@id": "odo-dt:NCBITaxonName",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Name"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The taxonomic species name at NCBI related to an NCBI identifier."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "NCBI Taxon Name"
+      }
+    },
+    {
+      "@id": "odo-dt:recommends",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that a DataType recommends that the associated Parameter be present, \n        but does not require it."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "recommends"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "odo-dt:measures"
+      }
+    },
+    {
+      "@id": "odo-dt:SampleIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Uniquely identifies one sample within a dataset."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Sample Identifier"
+      }
+    },
+    {
+      "@id": "odo-dt:Latitude",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Latitude."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Latitude"
+      }
+    },
+    {
+      "@id": "odo-dt:SpectralCount",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Count"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The spectral count for an identifified protein."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Spectral Count"
+      }
+    },
+    {
+      "@id": "odo-dt:hasCruiseIdentifierPath",
+      "owl:propertyChainAxiom": {
+        "@id": "_:ub41bL764C55"
+      }
+    },
+    {
+      "@id": "odo-dt:CruiseIdentifier",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:Identifier"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Representative of a cruise or some other named deployment."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Cruise Identifier"
+      }
+    },
+    {
+      "@id": "_:ub41bL764C55",
+      "rdf:first": {
+        "@id": "odo:fromDeployment"
+      },
+      "rdf:rest": {
+        "@id": "odo-dt:cruiseIdentifierProperty"
+      }
+    },
+    {
+      "@id": "odo-dt:subjectArea",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that the SubjectArea pertains to the observations made for a DataType."
+      },
+      "rdfs:domain": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "subjectArea"
+      },
+      "rdfs:range": {
+        "@id": "odo-dt:SubjectArea"
+      }
+    },
+    {
+      "@id": "_:ub41bL735C1",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "2"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:summationOf"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo:Parameter"
+      }
+    },
+    {
+      "@id": "odo-dt:datasetCruiseIdentifier",
+      "@type": "owl:DatatypeProperty",
+      "odo-dt:inferredParameter": {
+        "@id": "odo-dt:CruiseIdentifier"
+      },
+      "owl:propertyChainAxiom": {
+        "@id": "odo-dt:hasCruiseIdentifierPath"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies the inferred Cruise Identifier(s) based on the dataset metadata."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Dataset"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "datasetCruiseIdentifier"
+      },
+      "rdfs:range": {
+        "@id": "xsd:string"
+      }
+    },
+    {
+      "@id": "odo-dt:entityRelationshipDiagram",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies that a Class and its entity relationships are described by a diagram."
+      },
+      "rdfs:domain": {
+        "@id": "owl:Class"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "entityRelationshipDiagram"
+      },
+      "rdfs:range": {
+        "@id": "odo-dt:EntityRelationshipDiagram"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "schema:subjectOf"
+      }
+    },
+    {
+      "@id": "odo-dt:MaxFilterSize_Microns",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo:Parameter"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:MaximumFilterSize"
+      },
+      "odo:dependsOn": {
+        "@id": "odo-dt:MinFilterSizeInMicrons"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The maximum filter size measured in microns."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Maximum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "odo-dt:DataTypeDiagram",
+      "@type": [
+        "owl:NamedIndividual",
+        "odo-dt:EntityRelationshipDiagram"
+      ],
+      "odo-dt:diagramsEntityRelationshipsFor": {
+        "@id": "odo-dt:DataType"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A diagram of the Ocean Data Ontology - Data Type Extension."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Diagram of Ocean Data Ontology - Data Type Extension"
+      },
+      "schema:contentUrl": {
+        "@type": "xsd:anyURI",
+        "@value": "http://ocean-data.org/schema/data-type/v1.0/diagram/DataType.png"
+      },
+      "schema:encodingFormat": "image/png"
+    },
+    {
+      "@id": "odo-dt:dataValueFormat",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A string, indicating a format for the data value that enables correct processing of the value. \n        For example, a date value may have a format such as 'YYYY-MM-DD'. Since the a format specified here are \n        implementation specific, this definition does not enforce any particular range on this property."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "dataValueFormat"
+      },
+      "rdfs:range": {
+        "@id": "owl:Thing"
+      }
+    },
+    {
+      "@id": "odo-dt:MinFilterSize_Microns",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "odo-dt:specializationOf": {
+        "@id": "odo-dt:MinimumFilterSize"
+      },
+      "odo:dependsOn": {
+        "@id": "odo-dt:MaxFilterSizeInMicrons"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "The minimum filter size measured in microns."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Minimum Filter Size in Microns"
+      }
+    },
+    {
+      "@id": "odo-dt:specializationOf",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "This parameter is narrower version of its range. It a specialization of its range \n        by because of some detail such as a specific unit of measure or becuase it was observed \n        using a specific instrument."
+      },
+      "rdfs:domain": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "specializationOf"
+      },
+      "rdfs:range": {
+        "@id": "odo:Parameter"
+      },
+      "rdfs:subPropertyOf": {
+        "@id": "rdfs:subClassOf"
+      }
+    },
+    {
+      "@id": "odo-dt:InferredParamter",
+      "@type": "owl:Class",
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "An inferred parameter is a parameter whoa value is not explicitly recorded in the Dataset, \n        but that can be inferred based on its data type and related metadata. For example, dataset collected on a Cruise \n        might not explicitly record the cruise in the dataset, but that it can be inferred through the metadata: \n        (odo:Dataset -> odo:fromDeployment [ dc:title ])."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "InferredParamter"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo:Parameter"
+      }
+    },
+    {
+      "@id": "odo-dt:Count",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A numberic quantity measuring the occurrence of some thing."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Count"
       }
     },
     {
@@ -1985,24 +2098,6 @@
       }
     },
     {
-      "@id": "opp:Plus2HSpectraCount",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:SpectralCount"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Number of identified +2H spectra"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Number of identified +2H spectra"
-      }
-    },
-    {
       "@id": "odo-dt:TotalPrecursorIntensity",
       "@type": [
         "owl:NamedIndividual",
@@ -2016,28 +2111,6 @@
         "@language": "en-US",
         "@value": "Total Precursor Intensity"
       }
-    },
-    {
-      "@id": "opp:PfamsIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:Identifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Representative of a Pfams identifier or accession."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Pfams Identifier"
-      }
-    },
-    {
-      "@id": "dc:creator",
-      "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "odo-dt:CruiseStationIdentifier",
@@ -2058,24 +2131,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Cruise Station Identifier"
-      }
-    },
-    {
-      "@id": "opp:PeptideGeneticSequenceIdentifier",
-      "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
-      ],
-      "odo-dt:specializationOf": {
-        "@id": "odo-dt:GeneticSequenceIdentifier"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A genetic sequence identifying a peptide."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Peptide Genetic Sequence Identifier"
       }
     }
   ]

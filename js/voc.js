@@ -1,6 +1,6 @@
 // GLOBALS
-var ontology_title = 'Ocean Protein Portal - Data Type Ontology';
-var voc_base_uri="http://schema.oceanproteinportal.org/v1.0/";
+//var ontology_title = 'Ocean Protein Portal - Data Type Ontology';
+//var voc_base_uri="http://schema.oceanproteinportal.org/v1.0/";
 var objectProperties={};
 var datatypeProperties={};
 var uiLanguage="en-US";
@@ -176,7 +176,7 @@ function getAllNamedIndividuals() {
       namedIndividuals[value["@id"]]=value;
     }
   });
-  console.log(namedIndividuals);
+  //console.log(namedIndividuals);
   return namedIndividuals;
 }
 
@@ -427,86 +427,34 @@ function getSingleNode(val) {
   return rtnvalue;
 }
 
-function prepareLink(val) {
+function prepareLink(val, label = '') {
   var url;
   var target;
   var link=val;
+  if (label == '') {
+    label = val;
+  }
   if ((val !== undefined) && (val !== null)) {
     if (val.indexOf(voc_base_uri) == 0) {
       var re = new RegExp(voc_base_uri, "g");
       url = val.replace(re, "");
-      //url=val.replace(/^http:\/\/schema\.oceanproteinportal\.org\//g , "");
       link='<a href="'+url+'" class="link">opp:'+url+'</a>';
     }
     if (val.indexOf("opp:") == 0) {
       url=val.replace(/^opp:/g , "");
-      link='<a href="'+url+'" class="link">'+val+'</a>';
-    }
-    if (val.indexOf("rdf:") == 0) {
-      url=val.replace(/^rdf:/g , "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("xsd:") == 0) {
-      url=val.replace(/^xsd:/g , "http://www.w3.org/2001/XMLSchema#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("dc:") == 0) {
-      url=val.replace(/^foaf:/g , "http://purl.org/dc/elements/1.1/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("dcterms:") == 0) {
-      url=val.replace(/^dcterms:/g , "http://purl.org/dc/terms/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("skos:") == 0) {
-      url=val.replace(/^skos:/g , "http://www.w3.org/2004/02/skos/core#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("schema:") == 0) {
-      url=val.replace(/^schema:/g , "http://schema.org/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-  }
-  return link;
-}
-
-function prepareLink2(val,label) {
-  var url;
-  var target;
-  var link=val;
-  if ((val !== undefined) && (val !== null)) {
-    if (val.indexOf(voc_base_uri) == 0) {
-      url=val.replace(/^http:\/\/schema\.oceanproteinportal\.org\//g , "");
       link='<a href="'+url+'" class="link">'+label+'</a>';
     }
-    if (val.indexOf("opp:") == 0) {
-      url=val.replace(/^opp:/g , "");
-      link='<a href="'+url+'" class="link">'+label+'</a>';
-    }
-    if (val.indexOf("rdf:") == 0) {
-      url=val.replace(/^rdf:/g , "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+label+'</a>';
-    }
-    if (val.indexOf("xsd:") == 0) {
-      url=val.replace(/^xsd:/g , "http://www.w3.org/2001/XMLSchema#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+label+'</a>';
-    }
-    if (val.indexOf("dc:") == 0) {
-      url=val.replace(/^foaf:/g , "http://purl.org/dc/elements/1.1/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("dcterms:") == 0) {
-      url=val.replace(/^dcterms:/g , "http://purl.org/dc/terms/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("skos:") == 0) {
-      url=val.replace(/^skos:/g , "http://www.w3.org/2004/02/skos/core#");
-      link='<a href="'+url+'"  class="link" target="_blank">'+val+'</a>';
-    }
-    if (val.indexOf("schema:") == 0) {
-      url=val.replace(/^schema:/g , "http://schema.org/");
-      link='<a href="'+url+'"  class="link" target="_blank">'+label+'</a>';
-    }
+    else {
+      var expanded = expandPrefix(val);
+      //console.log(val + ' -> ' + expanded);
+      if (expanded == val) {
+        // Not expanded
+      }
+      else {
+        // Expanded
+        link='<a href="'+expanded+'"  class="link" target="_blank">'+label+'</a>';
+      }
+    }    
   }
   return link;
 }
@@ -820,7 +768,7 @@ function tabulateProperties(obj,linkMiddle,includeMiddle) {
     var range= [];
     /*
     if (value["rdfs:range"] == undefined) {
-      console.log(value);
+      //console.log(value);
     }
     */
     var range=value["rdfs:range"]["@id"] || [];
@@ -893,12 +841,12 @@ function tabulateNamedIndividualProperties(obj) {
         resource=prepareLink(value["@id"] || "");
       }
       tableRow+='<tr>';
-      tableRow+='<td class="firstCol3">'+prepareLink2(keyname)+'</td>';
+      tableRow+='<td class="firstCol3">'+prepareLink(keyname)+'</td>';
       tableRow+='<td class="thirdCol3"><div class="code-value-uri">'+resource+'</div>';
       tableRow+='<td class="thirdCol3"><div class="code-value-uri"></div>';
       tableRow+='</td>';
       tableRow+='</tr>';
-      console.log("named individual: " + keyname);
+      //console.log("named individual: " + keyname);
       tableContents+=tableRow;
     }
   });
@@ -910,12 +858,12 @@ function tabulateNamedIndividualProperties(obj) {
         resource += prepareLink(item) + "<br/>";
       });
       tableRow+='<tr>';
-      tableRow+='<td class="firstCol3">'+prepareLink2(property)+'</td>';
+      tableRow+='<td class="firstCol3">'+prepareLink(property)+'</td>';
       tableRow+='<td class="thirdCol3"><div class="code-value-uri"></div>';
       tableRow+='<td class="thirdCol3"><div class="code-value-uri">'+resource+'</div>';
       tableRow+='</td>';
       tableRow+='</tr>';
-      console.log("isValueOf: " + property);
+      //console.log("isValueOf: " + property);
       tableContents+=tableRow;
     });
   }
@@ -928,7 +876,7 @@ function expandPrefix(val) {
     return val;
   }
   if(undefined != context[prefix]) {
-    var re = new RegExp(prefix, "g");
+    var re = new RegExp(prefix+":", "g");
     return val.replace(re, context[prefix]);
   }
   return val;
@@ -1428,7 +1376,7 @@ function updatestate2(val) {
       var termCommentText = selectLanguage(termComment,uiLanguage);
       $("#termComment").html(termCommentText);
 
-      $("#breadcrumbTrail").html('<li><a href="./" class="link">'+ontology_title+'</a></li><li><a href="./?show=typecodes" class="link">All Type Codes</a></li><li>'+prepareLink2(typecode,typecodelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
+      $("#breadcrumbTrail").html('<li><a href="./" class="link">'+ontology_title+'</a></li><li><a href="./?show=typecodes" class="link">All Type Codes</a></li><li>'+prepareLink(typecode,typecodelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
 
       $('#allClasses').hide();
       $('#allProperties').hide();

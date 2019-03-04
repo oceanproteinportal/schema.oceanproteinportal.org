@@ -1,9 +1,14 @@
 // GLOBALS
-var voc_base_uri="http://schema.oceanproteinportal.org/";
+var ontology_title = 'Ocean Protein Portal - Data Type Ontology';
+var voc_base_uri="http://schema.oceanproteinportal.org/v1.0/";
 var objectProperties={};
 var datatypeProperties={};
-var uiLanguage="en";
+var uiLanguage="en-US";
 var isValueOfProperty="_:isValueOf";
+
+// Update the termURL
+$("#termURL").html(voc_base_uri);
+
 var uiText=[];
 uiText["Exact match:"] = "Exact match:";
 uiText["Close match:"] = "Close match:";
@@ -17,7 +22,11 @@ uiText["Properties of"] = "Properties of";
 uiText["A subclass of"] = "A subclass of";
 uiText["Has subclasses"] = "Has subclasses";
 var graph='';
+var context='';
 var nodeTypes;
+
+// Update the termURL
+$("#termURL").html(voc_base_uri);
 
 // Get the vocabulary.
 $(function() {
@@ -141,6 +150,7 @@ function getAllClasses() {
       classes[id]=value;
     }
   });
+  //console.log(classes);
   return classes;
 }
 
@@ -149,10 +159,11 @@ function getAllProperties() {
   $.each(graph, function( index, value ) {
     var id=value["@id"];
     var type=value["@type"] || [];
-    if (type.indexOf("rdf:Property") > -1) {
+    if (type.indexOf("rdf:Property") > -1 || type.indexOf("owl:ObjectProperty") > -1 || type.indexOf("owl:DatatypeProperty") > -1) {
       properties[value["@id"]]=value;
     }
   });
+  //console.log(properties); 
   return properties;
 }
 
@@ -165,6 +176,7 @@ function getAllNamedIndividuals() {
       namedIndividuals[value["@id"]]=value;
     }
   });
+  console.log(namedIndividuals);
   return namedIndividuals;
 }
 
@@ -421,7 +433,9 @@ function prepareLink(val) {
   var link=val;
   if ((val !== undefined) && (val !== null)) {
     if (val.indexOf(voc_base_uri) == 0) {
-      url=val.replace(/^http:\/\/schema\.oceanproteinportal\.org\//g , "");
+      var re = new RegExp(voc_base_uri, "g");
+      url = val.replace(re, "");
+      //url=val.replace(/^http:\/\/schema\.oceanproteinportal\.org\//g , "");
       link='<a href="'+url+'" class="link">opp:'+url+'</a>';
     }
     if (val.indexOf("opp:") == 0) {
@@ -730,8 +744,10 @@ function tabulateNamedIndividuals(obj) {
         types += type + '</br>';
       }
     });
+
     tableRow+='<tr>';
-    tableRow+='<td class="firstCol2">'+prepareLink(url)+'</td>';
+    //tableRow+='<td class="firstCol2">'+prepareLink(url)+'</td>';
+    tableRow+='<td class="firstCol2">'+selectLanguage(label,uiLanguage)+'<div class="code-value-uri">'+prepareLink(url)+'</div>'+'</td>';
     tableRow+='<td class="thirdCol3">'+types+'</td>';
     tableRow+='<td class="secondCol2">'+selectLanguage(label,uiLanguage);
     tableRow+='</td>';
@@ -765,22 +781,22 @@ function populateBreadcrumbTrail(val,type,node,label) {
   var html="";
   switch (type) {
     case "Class" :
-      html+='<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li>';
+      html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
       html+='<li><a href="./?show=classes" class="link">All Classes</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
       break;
     case "property" :
-      html+='<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li>';
+      html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
       html+='<li><a href="./?show=properties" class="link">All Properties</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
       break;
     case "NamedIndividual" :
-      html+='<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li>';
+      html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
       html+='<li><a href="./?show=namedindividuals" class="link">All Named Individuals</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
       break;
     case "TypeCode" :
-      html+='<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li>';
+      html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
       html+='<li><a href="./?show=typecodes" class="link">All Type Codes</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
   }
@@ -812,7 +828,7 @@ function tabulateProperties(obj,linkMiddle,includeMiddle) {
     var url=value["@id"] || "";
     var label=value["rdfs:label"];
 
-    tableRow+='<tr typeof="rdfs:Property" resource="'+url+'">';
+    tableRow+='<tr typeof="rdf:Property" resource="'+url+'">';
     tableRow+='<td property="rdfs:label" class="firstCol'+numcols+'">'+selectLanguage(label,uiLanguage)+'<div class="code-value-uri">'+prepareLink(url)+'</div>'+'</td>';
     if (includeMiddle) {
       tableRow+='<td property="schema:rangeIncludes" class="secondCol'+numcols+'">';
@@ -882,6 +898,7 @@ function tabulateNamedIndividualProperties(obj) {
       tableRow+='<td class="thirdCol3"><div class="code-value-uri"></div>';
       tableRow+='</td>';
       tableRow+='</tr>';
+      console.log("named individual: " + keyname);
       tableContents+=tableRow;
     }
   });
@@ -898,14 +915,23 @@ function tabulateNamedIndividualProperties(obj) {
       tableRow+='<td class="thirdCol3"><div class="code-value-uri">'+resource+'</div>';
       tableRow+='</td>';
       tableRow+='</tr>';
+      console.log("isValueOf: " + property);
       tableContents+=tableRow;
     });
   }
   return tableContents;
 }
 
-function expandOppPrefix(val) {
-  return val.replace(/^opp:/g, voc_base_uri);
+function expandPrefix(val) {
+  var prefix = val.split(":", 1);
+  if (prefix == val) {
+    return val;
+  }
+  if(undefined != context[prefix]) {
+    var re = new RegExp(prefix, "g");
+    return val.replace(re, context[prefix]);
+  }
+  return val;
 }
 
 function selectLanguage(obj,langTag) {
@@ -929,14 +955,14 @@ function selectLanguage(obj,langTag) {
 function updatestate2(val) {
   val = val.replace(/^\.\//g,"");
   if (val == "") {
-    $(document).prop('title', 'Ocean Protein Portal web vocabulary');
-    $("#termName").html("Ocean Protein Portal Web Vocabulary");
-    $('#breadcrumbTrail').html('<li id="currentClass">Ocean Protein Portal Web Vocabulary</li>');
+    $(document).prop('title', ontology_title);
+    $("#termName").html(ontology_title);
+    $('#breadcrumbTrail').html('<li id="currentClass">'+ontology_title+'</li>');
     $('#breadcrumbTrail').show();
     $('#intro').show();
     $('#termComment').html('');
     $('#termComment').hide();
-    $('#termURL').html('http://schema.oceanproteinportal.org/');
+    $('#termURL').html(voc_base_uri);
     $('#allClasses').hide();
     $('#allProperties').hide();
     $('#allNamedIndividuals').hide();
@@ -966,7 +992,7 @@ function updatestate2(val) {
     var node=getSingleNode(term);
     var type=determineType(term);
     if (node !== null) {
-      var termURL=expandOppPrefix(node["@id"]);
+      var termURL=expandPrefix(node["@id"]);
       $("#termURL").html(termURL);
       var termComment = node["rdfs:comment"];
       var termLabel = node["rdfs:label"];
@@ -978,7 +1004,7 @@ function updatestate2(val) {
         case "?show=classes":
           $('#triple').hide();
           $('#termComment').hide();
-          $('#termURL').html('http://schema.oceanproteinportal.org/');
+          $('#termURL').html(voc_base_uri);
           $('#allClasses').show();
           $('#allProperties').hide();
           $('#allNamedIndividuals').hide();
@@ -993,7 +1019,7 @@ function updatestate2(val) {
           $('#subclassNote').hide();
           $('#superclassNote').hide();
           $("#termName").html("All Classes");
-          $('#breadcrumbTrail').html('<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li><li id="currentClass">All Classes</a></li>');
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">All Classes</a></li>');
           var classes=getAllClasses();
           var tableContents=tabulateClasses(classes);
           $("#termMemberDetails1").html(tableContents);
@@ -1002,7 +1028,7 @@ function updatestate2(val) {
         case "?show=properties":
           $('#triple').hide();
           $('#termComment').hide();
-          $('#termURL').html('http://schema.oceanproteinportal.org/');
+          $('#termURL').html(voc_base_uri);
           $('#subclassNote').hide();
           $('#superclassNote').hide();
           $('#allClasses').hide();
@@ -1017,7 +1043,7 @@ function updatestate2(val) {
           $('.searchresults').hide();
           $(".termschema").hide();
           $("#termName").html("All Properties");
-          $('#breadcrumbTrail').html('<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li><li id="currentClass">All Properties</a></li>');
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">All Properties</a></li>');
           var properties=getAllProperties();
           var tableContents=tabulateProperties(properties,true,false);
           $("#termMemberDetails2").html(tableContents);
@@ -1039,9 +1065,9 @@ function updatestate2(val) {
           $('#termComment').hide();
           $('#subclassNote').hide();
           $('#superclassNote').hide();
-          $('#termURL').html('http://schema.oceanproteinportal.org/');
+          $('#termURL').html(voc_base_uri);
           $("#termName").html("All Named Individuals");
-          $('#breadcrumbTrail').html('<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li><li id="currentClass">All Named Individuals</a></li>');
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">All Named Individuals</a></li>');
           var namedIndividuals=getAllNamedIndividuals();
           var tableContents=tabulateNamedIndividuals(namedIndividuals);
           $("#termMemberDetailsNI").html(tableContents);
@@ -1063,9 +1089,9 @@ function updatestate2(val) {
           $('#termComment').hide();
           $('#subclassNote').hide();
           $('#superclassNote').hide();
-          $('#termURL').html('http://schema.oceanproteinportal.org/');
+          $('#termURL').html(voc_base_uri);
           $("#termName").html("All Type Codes");
-          $('#breadcrumbTrail').html('<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li><li id="currentClass">All Type Codes</a></li>');
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">All Type Codes</a></li>');
           var typecodes=getAllTypeCodes();
           var tableContents=tabulateTypeCodes(typecodes);
           $("#termMemberDetails3").html(tableContents);
@@ -1402,7 +1428,7 @@ function updatestate2(val) {
       var termCommentText = selectLanguage(termComment,uiLanguage);
       $("#termComment").html(termCommentText);
 
-      $("#breadcrumbTrail").html('<li><a href="./" class="link">Ocean Protein Portal Web Vocabulary</a></li><li><a href="./?show=typecodes" class="link">All Type Codes</a></li><li>'+prepareLink2(typecode,typecodelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
+      $("#breadcrumbTrail").html('<li><a href="./" class="link">'+ontology_title+'</a></li><li><a href="./?show=typecodes" class="link">All Type Codes</a></li><li>'+prepareLink2(typecode,typecodelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
 
       $('#allClasses').hide();
       $('#allProperties').hide();
@@ -1473,7 +1499,10 @@ function getTerm() {
 function getVersionInfo() {
   $.each(graph, function( index, value ) {
     var type=value["@type"] || [];
-    if ((type.indexOf("owl:Ontology") > -1)) {
+    if ((type.indexOf("owl:Ontology") > -1) && value["@id"] == "opp:") {
+      if(undefined != value["rdfs:label"]) {
+        ontology_title = selectLanguage(value["rdfs:label"],uiLanguage); 
+      }
       if(undefined != value["owl:versionInfo"]) {
         $("#version-info").html(value["owl:versionInfo"]);
       }
@@ -1490,7 +1519,9 @@ function getVersionInfo() {
 function displayVocabulary(vocab) {
   var json=JSON.parse(vocab);
   graph=json["@graph"];
+  context=json["@context"];
   nodeTypes=getNodeTypes();
+  
 
   //console.log(nodeTypes);
   getVersionInfo();

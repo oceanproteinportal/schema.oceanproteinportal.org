@@ -1502,6 +1502,14 @@
       },
       "rdfs:range": {
         "@id": "xsd:string"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Specifies the inferred Cruise Identifier(s) based on the dataset metadata."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "datasetCruiseIdentifier"
       }
     },
     {

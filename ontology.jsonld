@@ -36,8 +36,8 @@
     {
       "@id": "odo-dt:MaximumFilterSize",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo:dependsOn": {
         "@id": "odo-dt:MinimumFilterSize"
@@ -54,8 +54,8 @@
     {
       "@id": "odo-dt:Longitude_DecimalDegrees",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Longitude"
@@ -72,9 +72,9 @@
     {
       "@id": "odo-dt:GeneticSequenceIdentifier",
       "@type": [
+        "odo:Parameter",
         "odo-dt:Identifier",
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -92,8 +92,8 @@
     {
       "@id": "opp:KeggOrthologyDescription",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Description"
@@ -107,7 +107,7 @@
         "@value": "Kegg Orthology Description"
       },
       "skos:related": {
-        "@id": "odo-dt:KeggIdentifier"
+        "@id": "opp:KeggOrthologyIdentifier"
       }
     },
     {
@@ -115,18 +115,18 @@
       "@type": "owl:AnnotationProperty"
     },
     {
-      "@id": "opp:OceanProteinPortalDataType",
+      "@id": "odo-dt:Depth",
       "@type": [
-        "odo-dt:DataType",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A data type fit for use within the Ocean Protein Portal."
+        "@value": "A depth."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Ocean Protein Portal Data Type"
+        "@value": "Depth"
       }
     },
     {
@@ -137,79 +137,79 @@
       ],
       "odo-dt:measures": [
         {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "odo-dt:SpectralCount"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
-        },
-        {
-          "@id": "opp:OtherIdentifiedProteins"
-        },
-        {
-          "@id": "odo-dt:SampleIdentifier"
-        },
-        {
-          "@id": "opp:KeggIdentifier"
-        },
-        {
-          "@id": "opp:BestNCBITaxonIdentifier"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "opp:KeggName"
+          "@id": "odo-dt:CruiseStationIdentifier"
         },
         {
           "@id": "odo-dt:Longitude_DecimalDegrees"
         },
         {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "opp:BestNCBITaxonName"
-        },
-        {
-          "@id": "odo-dt:Time"
-        },
-        {
-          "@id": "odo-dt:CruiseStationIdentifier"
-        },
-        {
-          "@id": "opp:EnzymeCommissionIdentifier"
-        },
-        {
-          "@id": "odo-dt:MolecularWeight_Daltons"
-        },
-        {
-          "@id": "opp:KeggDescription"
-        },
-        {
-          "@id": "odo-dt:DateTime"
-        },
-        {
-          "@id": "odo-dt:Depth_Meters"
-        },
-        {
-          "@id": "opp:PfamsDescription"
+          "@id": "opp:OtherIdentifiedProteins"
         },
         {
           "@id": "odo-dt:MaxFilterSize_Microns"
         },
         {
-          "@id": "opp:PfamsIdentifier"
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:KeggDescription"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "opp:EnzymeCommissionIdentifier"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
+        },
+        {
+          "@id": "odo-dt:MolecularWeight_Daltons"
+        },
+        {
+          "@id": "odo-dt:Time"
         },
         {
           "@id": "odo-dt:CruiseIdentifier"
         },
         {
+          "@id": "opp:UniprotIdentifier"
+        },
+        {
+          "@id": "opp:PfamsDescription"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:DateTime"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "opp:BestNCBITaxonIdentifier"
+        },
+        {
           "@id": "opp:IdentifiedProductName"
         },
         {
-          "@id": "opp:UniprotIdentifier"
+          "@id": "opp:PfamsIdentifier"
+        },
+        {
+          "@id": "opp:KeggName"
+        },
+        {
+          "@id": "opp:BestNCBITaxonName"
+        },
+        {
+          "@id": "opp:KeggIdentifier"
         }
       ],
       "odo-dt:recommends": {
@@ -217,40 +217,40 @@
       },
       "odo-dt:requires": [
         {
-          "@id": "odo-dt:CruiseStationIdentifier"
-        },
-        {
           "@id": "odo-dt:Latitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
-        },
-        {
-          "@id": "odo-dt:SpectralCount"
-        },
-        {
-          "@id": "opp:ProteinIdentifier"
-        },
-        {
-          "@id": "opp:IdentifiedProductName"
-        },
-        {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:CruiseIdentifier"
-        },
-        {
-          "@id": "odo-dt:Depth_Meters"
         },
         {
           "@id": "odo-dt:SampleIdentifier"
         },
         {
+          "@id": "opp:IdentifiedProductName"
+        },
+        {
+          "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
           "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "odo-dt:MaxFilterSize_Microns"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "odo-dt:CruiseIdentifier"
+        },
+        {
+          "@id": "odo-dt:SpectralCount"
         }
       ],
       "rdfs:comment": {
@@ -304,10 +304,39 @@
       "@type": "owl:AnnotationProperty"
     },
     {
+      "@id": "_:ub41bL740C1",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:inferredValueTarget"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:InferredParameter"
+      }
+    },
+    {
+      "@id": "opp:OceanMetaproteomics",
+      "@type": [
+        "odo-dt:SubjectArea",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Metaproteomics of the ocean."
+      },
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Ocean Metaproteomics"
+      }
+    },
+    {
       "@id": "odo-dt:inferredParameter",
       "@type": [
-        "owl:AnnontationProperty",
-        "owl:ObjectProperty"
+        "owl:ObjectProperty",
+        "owl:AnnontationProperty"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -324,8 +353,8 @@
     {
       "@id": "odo-dt:CruiseResults",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:DataType"
+        "odo:DataType",
+        "owl:NamedIndividual"
       ],
       "odo-dt:measures": {
         "@id": "odo-dt:CruiseIdentifier"
@@ -351,8 +380,8 @@
     {
       "@id": "odo-dt:StationIdentifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Identifier"
@@ -367,24 +396,10 @@
       }
     },
     {
-      "@id": "_:ub22bL741C1",
-      "@type": "owl:Restriction",
-      "owl:cardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:inferredValueTarget"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo-dt:InferredParameter"
-      }
-    },
-    {
       "@id": "odo-dt:Probability",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -417,28 +432,31 @@
       }
     },
     {
-      "@id": "opp:PeptideGeneticSequenceIdentifier",
+      "@id": "opp:BestNCBITaxonName",
       "@type": [
         "owl:NamedIndividual",
         "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
-        "@id": "odo-dt:GeneticSequenceIdentifier"
+        "@id": "odo-dt:NCBITaxonName"
       },
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A genetic sequence identifying a peptide."
+        "@value": "The best taxonomic species name at NCBI related to a Taxon identifier."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Peptide Genetic Sequence Identifier"
+        "@value": "Best NCBI Taxon Name"
+      },
+      "skos:related": {
+        "@id": "opp:BestNCBITaxonIdentifier"
       }
     },
     {
       "@id": "opp:ProteinGeneticSequenceIdentifier",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:GeneticSequenceIdentifier"
@@ -476,8 +494,8 @@
     {
       "@id": "odo-dt:Identifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -507,8 +525,8 @@
     {
       "@id": "opp:EnzymeCommissionIdentifier",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Identifier"
@@ -520,6 +538,20 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Enzyme Commission Identifier"
+      }
+    },
+    {
+      "@id": "_:ub41bL730C1",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "2"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:aggregates"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:DataType"
       }
     },
     {
@@ -541,20 +573,6 @@
       }
     },
     {
-      "@id": "_:ub22bL731C1",
-      "@type": "owl:Restriction",
-      "owl:minCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "2"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:aggregates"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo-dt:DataType"
-      }
-    },
-    {
       "@id": "opp:OceanProteinPortalDataType_Total-Spectral-Counts",
       "@type": [
         "owl:NamedIndividual",
@@ -562,10 +580,10 @@
       ],
       "odo-dt:aggregates": [
         {
-          "@id": "opp:ProteinSpectralCounts"
+          "@id": "opp:PeptideSpectralCounts"
         },
         {
-          "@id": "opp:PeptideSpectralCounts"
+          "@id": "opp:ProteinSpectralCounts"
         },
         {
           "@id": "opp:FASTA-ProteinIdentifications"
@@ -640,14 +658,28 @@
       }
     },
     {
+      "@id": "_:ub41bL745C1",
+      "@type": "owl:Restriction",
+      "owl:cardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "1"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:inferredValueTargetProperty"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo-dt:InferredParameter"
+      }
+    },
+    {
       "@id": "skos:altLabel",
       "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "opp:UniprotIdentifier",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Identifier"
@@ -662,27 +694,10 @@
       }
     },
     {
-      "@id": "_:ub22bL760C1",
-      "@type": "owl:Axiom",
-      "owl:annotatedProperty": {
-        "@id": "owl:propertyChainAxiom"
-      },
-      "owl:annotatedSource": {
-        "@id": "odo-dt:hasCruiseIdentifierPath"
-      },
-      "owl:annotatedTarget": {
-        "@id": "odo-dt:cruiseIdentifierProperty"
-      },
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "A cruise's title is the inferred value of the 'CruiseIdentifier' parameter for a dataset."
-      }
-    },
-    {
       "@id": "opp:ProteinMolecularWeight_Daltons",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:MolecularWeightInDaltons"
@@ -736,8 +751,8 @@
     {
       "@id": "odo-dt:Score",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -751,8 +766,8 @@
     {
       "@id": "odo-dt:MinimumFilterSize",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo:dependsOn": {
         "@id": "odo-dt:MaximumFilterSize"
@@ -805,8 +820,8 @@
     {
       "@id": "opp:KeggOrthologyName",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Name"
@@ -820,14 +835,14 @@
         "@value": "Kegg Orthology Name"
       },
       "skos:related": {
-        "@id": "odo-dt:KeggIdentifier"
+        "@id": "opp:KeggOrthologyIdentifier"
       }
     },
     {
       "@id": "opp:BestNCBITaxonIdentifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:NCBITaxonIdentifier"
@@ -844,8 +859,8 @@
     {
       "@id": "odo-dt:Date",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -859,8 +874,8 @@
     {
       "@id": "odo-dt:MolecularWeight_Daltons",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:MolecularWeight"
@@ -895,8 +910,8 @@
     {
       "@id": "opp:AbsoluteUnits_FemtomolePerLiter",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -910,8 +925,8 @@
     {
       "@id": "odo-dt:Name",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -925,8 +940,8 @@
     {
       "@id": "odo-dt:Time",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -940,8 +955,8 @@
     {
       "@id": "odo-dt:TotalIonChromatogram",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -975,24 +990,25 @@
       }
     },
     {
-      "@id": "_:ub22bL746C1",
-      "@type": "owl:Restriction",
-      "owl:cardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "1"
+      "@id": "odo-dt:Longitude",
+      "@type": [
+        "odo:Parameter",
+        "owl:NamedIndividual"
+      ],
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "Longitude."
       },
-      "owl:onProperty": {
-        "@id": "odo-dt:inferredValueTargetProperty"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo-dt:InferredParameter"
+      "rdfs:label": {
+        "@language": "en-US",
+        "@value": "Longitude"
       }
     },
     {
       "@id": "odo-dt:MedianRetentionTime",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -1039,8 +1055,8 @@
     {
       "@id": "odo-dt:Proteomics",
       "@type": [
-        "odo-dt:SubjectArea",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo-dt:SubjectArea"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -1133,10 +1149,27 @@
       "schema:encodingFormat": "image/png"
     },
     {
+      "@id": "_:ub41bL759C1",
+      "@type": "owl:Axiom",
+      "owl:annotatedProperty": {
+        "@id": "owl:propertyChainAxiom"
+      },
+      "owl:annotatedSource": {
+        "@id": "odo-dt:hasCruiseIdentifierPath"
+      },
+      "owl:annotatedTarget": {
+        "@id": "odo-dt:cruiseIdentifierProperty"
+      },
+      "rdfs:comment": {
+        "@language": "en-US",
+        "@value": "A cruise's title is the inferred value of the 'CruiseIdentifier' parameter for a dataset."
+      }
+    },
+    {
       "@id": "opp:BestSequestDCnScore",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Score"
@@ -1188,23 +1221,23 @@
     {
       "@id": "opp:FASTA-ProteinIdentifications",
       "@type": [
-        "owl:NamedIndividual",
-        "odo-dt:DataType"
+        "odo-dt:DataType",
+        "owl:NamedIndividual"
       ],
       "odo-dt:measures": [
         {
           "@id": "opp:ProteinIdentifier"
         },
         {
-          "@id": "odo-dt:ProteinGeneticSequenceIdentifier"
+          "@id": "opp:ProteinGeneticSequenceIdentifier"
         }
       ],
       "odo-dt:requires": [
         {
-          "@id": "odo-dt:ProteinGeneticSequenceIdentifier"
+          "@id": "opp:ProteinIdentifier"
         },
         {
-          "@id": "opp:ProteinIdentifier"
+          "@id": "opp:ProteinGeneticSequenceIdentifier"
         }
       ],
       "rdfs:comment": {
@@ -1219,8 +1252,8 @@
     {
       "@id": "odo-dt:Depth_Meters",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Depth"
@@ -1237,8 +1270,8 @@
     {
       "@id": "odo-dt:Description",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -1331,8 +1364,8 @@
     {
       "@id": "odo-dt:Latitude",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -1344,19 +1377,10 @@
       }
     },
     {
-      "@id": "_:ub22bL765C55",
-      "rdf:first": {
-        "@id": "odo:fromDeployment"
-      },
-      "rdf:rest": {
-        "@id": "odo-dt:cruiseIdentifierProperty"
-      }
-    },
-    {
       "@id": "odo-dt:SpectralCount",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Count"
@@ -1373,7 +1397,7 @@
     {
       "@id": "odo-dt:hasCruiseIdentifierPath",
       "owl:propertyChainAxiom": {
-        "@id": "_:ub22bL765C55"
+        "@id": "_:ub41bL764C55"
       }
     },
     {
@@ -1390,10 +1414,10 @@
           "@id": "opp:Plus2HSpectraCount"
         },
         {
-          "@id": "opp:Plus3HSpectraCount"
+          "@id": "opp:Plus4HSpectraCount"
         },
         {
-          "@id": "opp:Plus4HSpectraCount"
+          "@id": "opp:Plus3HSpectraCount"
         }
       ],
       "rdfs:comment": {
@@ -1403,19 +1427,19 @@
       "rdfs:label": [
         {
           "@language": "en-US",
-          "@value": "Sum of the spectral counts"
+          "@value": "Spectral Count Sum"
         },
         {
           "@language": "en-US",
-          "@value": "Spectral Count Sum"
+          "@value": "Sum of the spectral counts"
         }
       ]
     },
     {
       "@id": "odo-dt:CruiseIdentifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Identifier"
@@ -1452,6 +1476,15 @@
       "@type": "owl:AnnontationProperty"
     },
     {
+      "@id": "_:ub41bL764C55",
+      "rdf:first": {
+        "@id": "odo:fromDeployment"
+      },
+      "rdf:rest": {
+        "@id": "odo-dt:cruiseIdentifierProperty"
+      }
+    },
+    {
       "@id": "odo-dt:subjectArea",
       "@type": "owl:ObjectProperty",
       "rdfs:comment": {
@@ -1470,10 +1503,24 @@
       }
     },
     {
+      "@id": "_:ub41bL735C1",
+      "@type": "owl:Restriction",
+      "owl:minCardinality": {
+        "@type": "xsd:nonNegativeInteger",
+        "@value": "2"
+      },
+      "owl:onProperty": {
+        "@id": "odo-dt:summationOf"
+      },
+      "rdfs:subClassOf": {
+        "@id": "odo:Parameter"
+      }
+    },
+    {
       "@id": "opp:PfamsDescription",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Description"
@@ -1487,7 +1534,7 @@
         "@value": "Pfams Description"
       },
       "skos:related": {
-        "@id": "odo-dt:PfamsIdentifier"
+        "@id": "opp:PfamsIdentifier"
       }
     },
     {
@@ -1550,14 +1597,14 @@
         "@value": "Peptide stop index"
       },
       "skos:related": {
-        "@id": "odo-dt:PeptideStartIndex"
+        "@id": "opp:PeptideStartIndex"
       }
     },
     {
       "@id": "odo-dt:MaxFilterSize_Microns",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:MaximumFilterSize"
@@ -1598,18 +1645,18 @@
       "schema:encodingFormat": "image/png"
     },
     {
-      "@id": "odo-dt:Depth",
+      "@id": "opp:OceanProteinPortalDataType",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo-dt:DataType",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "A depth."
+        "@value": "A data type fit for use within the Ocean Protein Portal."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Depth"
+        "@value": "Ocean Protein Portal Data Type"
       }
     },
     {
@@ -1643,21 +1690,6 @@
       },
       "rdfs:range": {
         "@id": "owl:Thing"
-      }
-    },
-    {
-      "@id": "odo-dt:Longitude",
-      "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Longitude."
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Longitude"
       }
     },
     {
@@ -1705,30 +1737,21 @@
     {
       "@id": "opp:PeptideSpectralCounts",
       "@type": [
-        "odo-dt:DataType",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo-dt:DataType"
       ],
       "odo-dt:measures": [
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "opp:AbsoluteUnits_FemtomolePerLiter"
-        },
         {
           "@id": "opp:ProteinIdentifier"
         },
         {
-          "@id": "odo-dt:SampleIdentifier"
+          "@id": "odo-dt:Longitude_DecimalDegrees"
         },
         {
-          "@id": "opp:Plus2HSpectraCount"
+          "@id": "odo-dt:MaxFilterSize_Microns"
         },
         {
-          "@id": "odo-dt:MedianRetentionTime"
-        },
-        {
-          "@id": "odo-dt:TotalIonChromatogram"
+          "@id": "opp:ProteinMolecularWeight_Daltons"
         },
         {
           "@id": "opp:OtherIdentifiedProteins"
@@ -1737,7 +1760,25 @@
           "@id": "odo-dt:Time"
         },
         {
-          "@id": "odo-dt:MaxFilterSize_Microns"
+          "@id": "odo-dt:SampleIdentifier"
+        },
+        {
+          "@id": "opp:Plus2HSpectraCount"
+        },
+        {
+          "@id": "opp:BestSequestXCorrScore"
+        },
+        {
+          "@id": "odo-dt:CruiseStationIdentifier"
+        },
+        {
+          "@id": "odo-dt:Date"
+        },
+        {
+          "@id": "odo-dt:Depth_Meters"
+        },
+        {
+          "@id": "opp:PeptideGeneticSequenceIdentifier"
         },
         {
           "@id": "odo-dt:TotalPrecursorIntensity"
@@ -1746,19 +1787,22 @@
           "@id": "opp:BestSequestDCnScore"
         },
         {
-          "@id": "opp:BestSequestXCorrScore"
+          "@id": "opp:AbsoluteUnits_FemtomolePerLiter"
         },
         {
-          "@id": "opp:Plus3HSpectraCount"
+          "@id": "odo-dt:TotalIonChromatogram"
+        },
+        {
+          "@id": "opp:PeptideStartIndex"
         },
         {
           "@id": "odo-dt:CruiseIdentifier"
         },
         {
-          "@id": "opp:PeptideSpectralCountSum"
+          "@id": "odo-dt:Latitude_DecimalDegrees"
         },
         {
-          "@id": "odo-dt:Longitude_DecimalDegrees"
+          "@id": "opp:Plus3HSpectraCount"
         },
         {
           "@id": "opp:BestProteinIdentifierProbability"
@@ -1767,13 +1811,10 @@
           "@id": "opp:Plus4HSpectraCount"
         },
         {
-          "@id": "opp:PeptideStartIndex"
+          "@id": "odo-dt:MinFilterSize_Microns"
         },
         {
-          "@id": "opp:ProteinMolecularWeight_Daltons"
-        },
-        {
-          "@id": "odo-dt:Depth_Meters"
+          "@id": "odo-dt:MedianRetentionTime"
         },
         {
           "@id": "opp:PeptideStopIndex"
@@ -1782,47 +1823,44 @@
           "@id": "odo-dt:DateTime"
         },
         {
-          "@id": "opp:PeptideGeneticSequenceIdentifier"
-        },
-        {
-          "@id": "odo-dt:CruiseStationIdentifier"
-        },
-        {
-          "@id": "odo-dt:Date"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
+          "@id": "opp:PeptideSpectralCountSum"
         }
       ],
       "odo-dt:recommends": [
         {
-          "@id": "odo-dt:Time"
+          "@id": "opp:PeptideSpectralCountSum"
         },
         {
-          "@id": "opp:PeptideSpectralCountSum"
+          "@id": "odo-dt:Time"
         }
       ],
       "odo-dt:requires": [
         {
-          "@id": "opp:ProteinIdentifier"
+          "@id": "odo-dt:MaxFilterSize_Microns"
         },
         {
-          "@id": "opp:PeptideGeneticSequenceIdentifier"
-        },
-        {
-          "@id": "opp:CruiseIdentifier"
-        },
-        {
-          "@id": "odo-dt:Date"
+          "@id": "odo-dt:CruiseStationIdentifier"
         },
         {
           "@id": "opp:PeptideStopIndex"
         },
         {
-          "@id": "odo-dt:CruiseStationIdentifier"
+          "@id": "odo-dt:MinFilterSize_Microns"
+        },
+        {
+          "@id": "opp:ProteinIdentifier"
         },
         {
           "@id": "odo-dt:Longitude_DecimalDegrees"
+        },
+        {
+          "@id": "odo-dt:Latitude_DecimalDegrees"
+        },
+        {
+          "@id": "opp:CruiseIdentifier"
+        },
+        {
+          "@id": "opp:PeptideGeneticSequenceIdentifier"
         },
         {
           "@id": "opp:PeptideStartIndex"
@@ -1831,13 +1869,7 @@
           "@id": "odo-dt:Depth_Meters"
         },
         {
-          "@id": "odo-dt:MaxFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:MinFilterSize_Microns"
-        },
-        {
-          "@id": "odo-dt:Latitude_DecimalDegrees"
+          "@id": "odo-dt:Date"
         }
       ],
       "rdfs:label": {
@@ -1863,8 +1895,8 @@
     {
       "@id": "odo-dt:Count",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -1873,24 +1905,6 @@
       "rdfs:label": {
         "@language": "en-US",
         "@value": "Count"
-      }
-    },
-    {
-      "@id": "opp:OceanProteomics",
-      "@type": [
-        "odo-dt:SubjectArea",
-        "owl:NamedIndividual"
-      ],
-      "rdfs:comment": {
-        "@language": "en-US",
-        "@value": "Ocean Proteomics"
-      },
-      "rdfs:label": {
-        "@language": "en-US",
-        "@value": "Ocean Proteomics"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo-dt:Proteomics"
       }
     },
     {
@@ -1914,8 +1928,8 @@
     {
       "@id": "opp:BestProteinIdentifierProbability",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:IdentificationProbability"
@@ -1932,8 +1946,8 @@
     {
       "@id": "odo-dt:IdentificationProbability",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:specializationOf": {
         "@id": "odo-dt:Probability"
@@ -1991,8 +2005,8 @@
     {
       "@id": "odo-dt:TotalPrecursorIntensity",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "rdfs:comment": {
         "@language": "en-US",
@@ -2022,28 +2036,14 @@
       }
     },
     {
-      "@id": "_:ub22bL736C1",
-      "@type": "owl:Restriction",
-      "owl:minCardinality": {
-        "@type": "xsd:nonNegativeInteger",
-        "@value": "2"
-      },
-      "owl:onProperty": {
-        "@id": "odo-dt:summationOf"
-      },
-      "rdfs:subClassOf": {
-        "@id": "odo:Parameter"
-      }
-    },
-    {
       "@id": "dc:creator",
       "@type": "owl:AnnotationProperty"
     },
     {
       "@id": "odo-dt:CruiseStationIdentifier",
       "@type": [
-        "odo:Parameter",
-        "owl:NamedIndividual"
+        "owl:NamedIndividual",
+        "odo:Parameter"
       ],
       "odo-dt:dependsOn": {
         "@id": "odo-dt:CruiseIdentifier"
@@ -2061,24 +2061,21 @@
       }
     },
     {
-      "@id": "opp:BestNCBITaxonName",
+      "@id": "opp:PeptideGeneticSequenceIdentifier",
       "@type": [
-        "owl:NamedIndividual",
-        "odo:Parameter"
+        "odo:Parameter",
+        "owl:NamedIndividual"
       ],
       "odo-dt:specializationOf": {
-        "@id": "odo-dt:NCBITaxonName"
+        "@id": "odo-dt:GeneticSequenceIdentifier"
       },
       "rdfs:comment": {
         "@language": "en-US",
-        "@value": "The best taxonomic species name at NCBI related to a Taxon identifier."
+        "@value": "A genetic sequence identifying a peptide."
       },
       "rdfs:label": {
         "@language": "en-US",
-        "@value": "Best NCBI Taxon Name"
-      },
-      "skos:related": {
-        "@id": "odo-dt:BestNCBITaxonIdentifier"
+        "@value": "Peptide Genetic Sequence Identifier"
       }
     }
   ]

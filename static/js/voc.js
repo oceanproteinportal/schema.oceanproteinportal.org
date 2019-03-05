@@ -204,6 +204,18 @@ function getAllDataTypes() {
   return datatypes;
 }
 
+function getAllParameters() {
+  var parameters={};
+  $.each(graph, function( index, value ) {
+    var id=value["@id"];
+    var type=value["rdf:subClassOf"] || [];
+    if ((type !== null) && (type["@id"]=="odo:Parameter")) {
+      parameters[value["@id"]]=value;
+    }
+  });
+  return parameters;
+}
+
 function getLinkedIDarray(obj,filter) {
   var r=[];
   if ((obj !== undefined) && (obj !== null)) {
@@ -932,6 +944,7 @@ function updatestate2(val) {
     $('#allProperties').hide();
     $('#allNamedIndividuals').hide();
     $('#allDataTypes').hide();
+    $('#allParameters').hide();
     $("#propertiesOfNI").hide();
     $('#propertiesOfClass').hide();
     $('#propertiesOfParentClass').hide();
@@ -975,6 +988,7 @@ function updatestate2(val) {
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
           $('#allDataTypes').hide();
+          $('#allParameters').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
@@ -1001,6 +1015,7 @@ function updatestate2(val) {
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
           $('#allDataTypes').hide();
+          $('#allParameters').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
@@ -1021,6 +1036,7 @@ function updatestate2(val) {
           $('#allNamedIndividuals').show();
           $("#propertiesOfNI").hide();
           $('#allDataTypes').hide();
+          $('#allParameters').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
@@ -1045,6 +1061,7 @@ function updatestate2(val) {
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
           $('#allDataTypes').show();
+          $('#allParameters').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
@@ -1062,6 +1079,31 @@ function updatestate2(val) {
           $("#termMemberDetails3").html(tableContents);
           break;
 
+        case "?show=parameters":
+          $('#triple').hide();
+          $('#allClasses').hide();
+          $('#allProperties').hide();
+          $('#allNamedIndividuals').hide();
+          $("#propertiesOfNI").hide();
+          $('#allDataTypes').hide();
+          $('#allParameters').show();
+          $('#propertiesOfClass').hide();
+          $('#propertiesOfParentClass').hide();
+          $('#propertiesOfGrandparentClass').hide();
+          $('#definedparameters').hide();
+          $('.searchresults').hide();
+          $(".termschema").hide();
+          $('#termComment').hide();
+          $('#subclassNote').hide();
+          $('#superclassNote').hide();
+          $('#termURL').html(voc_base_uri);
+          $("#termName").html("All Type Codes");
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">Parameters</a></li>');
+          var parameters=getAllParameters();
+          var tableContents=tabulateDataTypes(parameters);
+          $("#termMemberDetails3").html(tableContents);
+          break;
+
         default:
           $('#triple').hide();
           $("#termName").html("Not found! ["+val+"]");
@@ -1070,6 +1112,7 @@ function updatestate2(val) {
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
           $('#allDataTypes').hide();
+          $('#allParameters').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
@@ -1144,6 +1187,7 @@ function updatestate2(val) {
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
       $("#allDataTypes").hide();
+      $('#allParameters').hide();
       $("#propertiesOfClass").show();
       $("#propertiesOfParentClass").hide();
       $("#propertiesOfGrandparentClass").hide();
@@ -1243,6 +1287,7 @@ function updatestate2(val) {
       $('#allNamedIndividuals').hide();
 
       $('#allDataTypes').hide();
+      $('#allParameters').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
@@ -1278,6 +1323,7 @@ function updatestate2(val) {
       $("#propertiesOfNI").hide();
       $('#allNamedIndividuals').hide();
       $('#allDataTypes').hide();
+      $('#allParameters').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
@@ -1367,6 +1413,7 @@ function updatestate2(val) {
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
       $('#allDataTypes').hide();
+      $('#allParameters').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
@@ -1400,6 +1447,7 @@ function updatestate2(val) {
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
       $('#allDataTypes').hide();
+      $('#allParameters').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();

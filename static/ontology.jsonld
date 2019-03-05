@@ -1125,7 +1125,7 @@
     {
       "@id": "odo-dt:CruiseResults",
       "@type": [
-        "odo:DataType",
+        "odo-dt:DataType",
         "owl:NamedIndividual"
       ],
       "odo-dt:measures": {

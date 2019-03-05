@@ -63,14 +63,14 @@ function doSearch() {
   var classes={};
   var properties={};
   var namedIndividuals={};
-  var typecodes={};
-  var typecodeinstances={};
+  var datatypes={};
+  var parameters={};
 
   var foundClass=false;
   var foundProperty=false;
   var foundNamedIndividuals=false;
-  var foundTypecode=false;
-  var foundTypecodeinstance=false;
+  var foundDataType=false;
+  var foundParameter=false;
   $.each(graph, function( index, value ) {
     var id=value["@id"];
     var type=value["@type"] || [];
@@ -95,13 +95,13 @@ function doSearch() {
           namedIndividuals[id]=value;
           foundNamedIndividuals=true;
           break;
-        case "TypeCode":
-          typecodes[id]=value;
-          foundTypecode=true;
+        case "DataType":
+          datatypes[id]=value;
+          foundDataType=true;
           break;
-        case "typeCodeInstance":
-          typecodeinstances[id]=value;
-          foundTypecodeinstance=true;
+        case "Parameter":
+          parameters[id]=value;
+          foundParameter=true;
           break;
       }
     }
@@ -132,23 +132,23 @@ function doSearch() {
     $("#namedIndividualResults").hide();
   }
 
-  if (foundTypecode) {
-    var tableContents=tabulateTypeCodes(typecodes);
-    $("#typecodeResultsDetails").html(tableContents);
-    $("#typecodeResults").show();
+  if (foundDataType) {
+    var tableContents=tabulateDataTypes(datatypes);
+    $("#datatypeResultsDetails").html(tableContents);
+    $("#datatypeResults").show();
   } else {
-    $("#typecodeResults").hide();
+    $("#datatypeResults").hide();
   }
 
-  if (foundTypecodeinstance) {
-    var tableContents=tabulateInstances(typecodeinstances);
-    $("#typecodeinstanceResultsDetails").html(tableContents);
-    $("#typecodeinstanceResults").show();
+  if (foundParameter) {
+    var tableContents=tabulateInstances(parameters);
+    $("#parameterResultsDetails").html(tableContents);
+    $("#parameterResults").show();
   } else {
-    $("#typecodeinstanceResults").hide();
+    $("#parameterResults").hide();
   }
 
-  if (foundClass || foundProperty || foundNamedIndividuals || foundTypecode || foundTypecodeinstance ) {
+  if (foundClass || foundProperty || foundNamedIndividuals || foundDataType || foundParameter ) {
     $(".searchresults").show();
   }
 }
@@ -175,7 +175,7 @@ function getAllProperties() {
       properties[value["@id"]]=value;
     }
   });
-  //console.log(properties); 
+  //console.log(properties);
   return properties;
 }
 
@@ -192,16 +192,16 @@ function getAllNamedIndividuals() {
   return namedIndividuals;
 }
 
-function getAllTypeCodes() {
-  var typecodes={};
+function getAllDataTypes() {
+  var datatypes={};
   $.each(graph, function( index, value ) {
     var id=value["@id"];
     var type=value["rdf:subClassOf"] || [];
-    if ((type !== null) && (type["@id"]=="opp:TypeCode")) {
-      typecodes[value["@id"]]=value;
+    if ((type !== null) && (type["@id"]=="opp:DataType")) {
+      datatypes[value["@id"]]=value;
     }
   });
-  return typecodes;
+  return datatypes;
 }
 
 function getLinkedIDarray(obj,filter) {
@@ -466,7 +466,7 @@ function prepareLink(val, label = '') {
         // Expanded
         link='<a href="'+expanded+'"  class="link" target="_blank">'+label+'</a>';
       }
-    }    
+    }
   }
   return link;
 }
@@ -484,12 +484,12 @@ function determineType(val) {
   if ( first.indexOf('owl:NamedIndividual') > -1 ) {
     type="NamedIndividual";
   }
-  if ( first.indexOf('opp:TypeCode') > -1  ) {
-    type="TypeCode";
+  if ( first.indexOf('odo-dt:DataType') > -1  ) {
+    type="DataType";
   }
 
-  if ( second.indexOf('opp:TypeCode') > -1  ) {
-    type="typeCodeInstance";
+  if ( second.indexOf('odo:Parameter') > -1  ) {
+    type="Parameter";
   }
   return type;
 }
@@ -717,7 +717,7 @@ function tabulateNamedIndividuals(obj) {
   return tableContents;
 }
 
-function tabulateTypeCodes(obj) {
+function tabulateDataTypes(obj) {
   var tableContents="";
   var sortedKeys=Object.keys(obj).sort();
   $.each(sortedKeys, function(index,keyname) {
@@ -755,9 +755,14 @@ function populateBreadcrumbTrail(val,type,node,label) {
       html+='<li><a href="./?show=namedindividuals" class="link">All Named Individuals</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
       break;
-    case "TypeCode" :
+    case "DataType" :
       html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
-      html+='<li><a href="./?show=typecodes" class="link">All Type Codes</a></li>';
+      html+='<li><a href="./?show=datatypes" class="link">Data Types</a></li>';
+      html+='<li id="currentClass">'+label+'</li>';
+      break;
+    case "Parameter" :
+      html+='<li><a href="./" class="link">'+ontology_title+'</a></li>';
+      html+='<li><a href="./?show=parameters" class="link">Parameters</a></li>';
       html+='<li id="currentClass">'+label+'</li>';
   }
   $("#breadcrumbTrail").html(html);
@@ -926,12 +931,12 @@ function updatestate2(val) {
     $('#allClasses').hide();
     $('#allProperties').hide();
     $('#allNamedIndividuals').hide();
-    $('#allTypecodes').hide();
+    $('#allDataTypes').hide();
     $("#propertiesOfNI").hide();
     $('#propertiesOfClass').hide();
     $('#propertiesOfParentClass').hide();
     $('#propertiesOfGrandparentClass').hide();
-    $('#definedTypecodeinstances').hide();
+    $('#definedparameters').hide();
     $('#subclasses').hide();
     $('#superclasses').hide();
     $('#havingrangeinfo').hide();
@@ -969,11 +974,11 @@ function updatestate2(val) {
           $('#allProperties').hide();
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
-          $('#allTypecodes').hide();
+          $('#allDataTypes').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
-          $('#definedTypecodeinstances').hide();
+          $('#definedparameters').hide();
           $('.searchresults').hide();
           $(".termschema").hide();
           $('#subclassNote').hide();
@@ -995,11 +1000,11 @@ function updatestate2(val) {
           $('#allProperties').show();
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
-          $('#allTypecodes').hide();
+          $('#allDataTypes').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
-          $('#definedTypecodeinstances').hide();
+          $('#definedparameters').hide();
           $('.searchresults').hide();
           $(".termschema").hide();
           $("#termName").html("All Properties");
@@ -1015,11 +1020,11 @@ function updatestate2(val) {
           $('#allProperties').hide();
           $('#allNamedIndividuals').show();
           $("#propertiesOfNI").hide();
-          $('#allTypecodes').hide();
+          $('#allDataTypes').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
-          $('#definedTypecodeinstances').hide();
+          $('#definedparameters').hide();
           $('.searchresults').hide();
           $(".termschema").hide();
           $('#termComment').hide();
@@ -1033,17 +1038,17 @@ function updatestate2(val) {
           $("#termMemberDetailsNI").html(tableContents);
           break;
 
-        case "?show=typecodes":
+        case "?show=datatypes":
           $('#triple').hide();
           $('#allClasses').hide();
           $('#allProperties').hide();
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
-          $('#allTypecodes').show();
+          $('#allDataTypes').show();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
-          $('#definedTypecodeinstances').hide();
+          $('#definedparameters').hide();
           $('.searchresults').hide();
           $(".termschema").hide();
           $('#termComment').hide();
@@ -1051,9 +1056,9 @@ function updatestate2(val) {
           $('#superclassNote').hide();
           $('#termURL').html(voc_base_uri);
           $("#termName").html("All Type Codes");
-          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">All Type Codes</a></li>');
-          var typecodes=getAllTypeCodes();
-          var tableContents=tabulateTypeCodes(typecodes);
+          $('#breadcrumbTrail').html('<li><a href="./" class="link">'+ontology_title+'</a></li><li id="currentClass">Data Types</a></li>');
+          var datatypes=getAllDataTypes();
+          var tableContents=tabulateDataTypes(datatypes);
           $("#termMemberDetails3").html(tableContents);
           break;
 
@@ -1064,11 +1069,11 @@ function updatestate2(val) {
           $('#allProperties').hide();
           $('#allNamedIndividuals').hide();
           $("#propertiesOfNI").hide();
-          $('#allTypecodes').hide();
+          $('#allDataTypes').hide();
           $('#propertiesOfClass').hide();
           $('#propertiesOfParentClass').hide();
           $('#propertiesOfGrandparentClass').hide();
-          $('#definedTypecodeinstances').hide();
+          $('#definedparameters').hide();
           break;
       }
 
@@ -1138,11 +1143,11 @@ function updatestate2(val) {
       $("#allProperties").hide();
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
-      $("#allTypecodes").hide();
+      $("#allDataTypes").hide();
       $("#propertiesOfClass").show();
       $("#propertiesOfParentClass").hide();
       $("#propertiesOfGrandparentClass").hide();
-      $("#definedTypecodeinstances").hide();
+      $("#definedparameters").hide();
 
       var subClasses=getSubClasses(term);
       if (Object.keys(subClasses).length > 0) {
@@ -1237,11 +1242,11 @@ function updatestate2(val) {
       $('#allProperties').hide();
       $('#allNamedIndividuals').hide();
 
-      $('#allTypecodes').hide();
+      $('#allDataTypes').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
-      $('#definedTypecodeinstances').hide();
+      $('#definedparameters').hide();
       $('#subclasses').hide();
       $('#superclasses').hide();
       $('#rangeinfo').hide();
@@ -1249,7 +1254,7 @@ function updatestate2(val) {
       $('#siblinginfo').hide();
     }
 
-    if (type == "TypeCode") {
+    if (type == "DataType") {
       $("#superclassNote").hide();
       $("#subclassNote").hide();
       $(".termschema").hide();
@@ -1272,11 +1277,11 @@ function updatestate2(val) {
       $('#allProperties').hide();
       $("#propertiesOfNI").hide();
       $('#allNamedIndividuals').hide();
-      $('#allTypecodes').hide();
+      $('#allDataTypes').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
-      $('#definedTypecodeinstances').show();
+      $('#definedparameters').show();
       $('#subclasses').hide();
       $('#superclasses').hide();
       $('#rangeinfo').hide();
@@ -1361,11 +1366,11 @@ function updatestate2(val) {
       $('#allProperties').hide();
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
-      $('#allTypecodes').hide();
+      $('#allDataTypes').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
-      $('#definedTypecodeinstances').hide();
+      $('#definedparameters').hide();
       $('#subclasses').hide();
       $('#superclasses').hide();
       $('#havingrangeinfo').hide();
@@ -1373,32 +1378,32 @@ function updatestate2(val) {
       $('#domaininfo').show();
     }
 
-    if (type == "typeCodeInstance") {
+    if (type == "Parameter") {
       $('#triple').hide();
       $('#superclassNote').hide();
       $('#subclassNote').hide();
       $(".termschema").hide();
 
       var node=getSingleNode(term);
-      var typecode=nodeTypes[term];
-      var typecodenode = getSingleNode(typecode);
-      var typecodeLabel = typecodenode["rdfs:label"];
-      var typecodelabeltext = selectLanguage(typecodeLabel,uiLanguage)
+      var datatype=nodeTypes[term];
+      var datatypenode = getSingleNode(datatype);
+      var datatypeLabel = datatypenode["rdfs:label"];
+      var datatypelabeltext = selectLanguage(datatypeLabel,uiLanguage)
       var termLabelen = selectLanguage(termLabel,uiLanguage);
       var termCommentText = selectLanguage(termComment,uiLanguage);
       $("#termComment").html(termCommentText);
 
-      $("#breadcrumbTrail").html('<li><a href="./" class="link">'+ontology_title+'</a></li><li><a href="./?show=typecodes" class="link">All Type Codes</a></li><li>'+prepareLink(typecode,typecodelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
+      $("#breadcrumbTrail").html('<li><a href="./" class="link">'+ontology_title+'</a></li><li><a href="./?show=datatypes" class="link">Parameters</a></li><li>'+prepareLink(datatype,datatypelabeltext)+'</li><li id="currentClass">'+termLabelen+'</li>');
 
       $('#allClasses').hide();
       $('#allProperties').hide();
       $('#allNamedIndividuals').hide();
       $("#propertiesOfNI").hide();
-      $('#allTypecodes').hide();
+      $('#allDataTypes').hide();
       $('#propertiesOfClass').hide();
       $('#propertiesOfParentClass').hide();
       $('#propertiesOfGrandparentClass').hide();
-      $('#definedTypecodeinstances').hide();
+      $('#definedparameters').hide();
       $('#subclasses').hide();
       $('#superclasses').hide();
       $('#havingrangeinfo').hide();
@@ -1461,7 +1466,7 @@ function getVersionInfo() {
     var type=value["@type"] || [];
     if ((type.indexOf("owl:Ontology") > -1) && value["@id"] == "opp:") {
       if(undefined != value["rdfs:label"]) {
-        ontology_title = selectLanguage(value["rdfs:label"],uiLanguage); 
+        ontology_title = selectLanguage(value["rdfs:label"],uiLanguage);
       }
       if(undefined != value["owl:versionInfo"]) {
         $("#version-info").html(value["owl:versionInfo"]);
@@ -1481,7 +1486,7 @@ function displayVocabulary(vocab) {
   graph=json["@graph"];
   context=json["@context"];
   nodeTypes=getNodeTypes();
-  
+
 
   //console.log(nodeTypes);
   getVersionInfo();
@@ -1489,8 +1494,8 @@ function displayVocabulary(vocab) {
   $("#classResults").hide();
   $("#propertyResults").hide();
   $("#namedIndividualResults").hide();
-  $("#typecodeResults").hide();
-  $("#typecodeinstanceResults").hide();
+  $("#datatypeResults").hide();
+  $("#parameterResults").hide();
 
   // Search.
   $('#doSearch').attr('type','button');
